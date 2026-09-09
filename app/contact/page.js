@@ -1,23 +1,84 @@
-import BookingForm from "../../components/BookingForm";
+import ContactForm from "@/components/ContactForm";
 
 export const metadata = {
-  title: "Contact & Book | Snow Crest Hotels",
-  description: "Check availability and book Luxe Vista directly via WhatsApp or email. FAQs answered.",
+  title: "Contact & Booking — Luxe Vista by Snow Crest",
+  description: "Check availability and send a booking request to Luxe Vista by Snow Crest.",
 };
 
-export default function Contact() {
+export default function ContactPage({ searchParams }) {
   return (
     <>
-      <div dangerouslySetInnerHTML={{ __html: "<section class=\"page-banner\">\n  <img src=\"/images/img-af5b5a939f.jpg\" alt=\"Plan Your Stay\">\n  <div class=\"wrap page-banner-content\">\n    <div class=\"breadcrumb\"><a href=\"/\">Home</a> / Contact</div>\n    <h1>Plan Your Stay</h1>\n    <p>Check availability, ask a question, or send a booking request directly.</p>\n  </div>\n</section>\n<section class=\"faq\" id=\"faq\">\n  <div class=\"wrap\">\n    <div class=\"section-head center reveal\">\n      <div class=\"eyebrow\" style=\"justify-content:center; display:flex;\">Frequently Asked Questions</div>\n      <h2>Quick answers before you book</h2>\n    </div>\n    <div class=\"faq-list\">\n      <details class=\"faq-item\" open>\n        <summary>Is this the same property as \"Hotel Luxe Vista Dalhousie\" on Tripadvisor?<span class=\"plus\">+</span></summary>\n        <p>Yes \u2014 same property in Banikhet, now under new management. Snow Crest Hotels took over operations in 2026; it was previously run by Nomad.</p>\n      </details>\n      <details class=\"faq-item\">\n        <summary>Where exactly is Luxe Vista by Snow Crest located?<span class=\"plus\">+</span></summary>\n        <p>In Banikhet, about 10 km above the main Dalhousie highway and roughly 15 km from Dalhousie town centre, at about 6,000 ft elevation.</p>\n      </details>\n      <details class=\"faq-item\">\n        <summary>How far is the hotel from Khajjiar?<span class=\"plus\">+</span></summary>\n        <p>About 20 km from Luxe Vista by Snow Crest.</p>\n      </details>\n      <details class=\"faq-item\">\n        <summary>Does the hotel have mountain-view rooms and free parking?<span class=\"plus\">+</span></summary>\n        <p>Yes \u2014 mountain views from every room, balconies from most, across four room categories, plus free on-site parking.</p>\n      </details>\n      <details class=\"faq-item\">\n        <summary>What is the starting rate?<span class=\"plus\">+</span></summary>\n        <p>From \u20b92,300 per night, depending on room category and season.</p>\n      </details>\n      <details class=\"faq-item\">\n        <summary>Can I book directly without an OTA?<span class=\"plus\">+</span></summary>\n        <p>Yes \u2014 directly via WhatsApp at 7018512267, by phone at 9317190212, or by email at Snowcresthotels@gmail.com, with one calendar and no added charges at check-in.</p>\n      </details>\n    </div>\n  </div>\n</section>\n" }} />
+      <section className="page-hero">
+        <div className="container">
+          <p className="eyebrow">Plan your stay</p>
+          <h1>Check availability</h1>
+          <p>
+            Send us your dates and we&apos;ll confirm by WhatsApp, usually
+            the same day.
+          </p>
+        </div>
+      </section>
 
-      <section className="request" id="contact">
-        <div className="wrap">
-          <div className="section-head center reveal">
-            <div className="eyebrow" style={{ justifyContent: "center", display: "flex" }}>Request a Booking</div>
-            <h2>Send us your dates — we&apos;ll confirm directly</h2>
-            <p>Fill this in and send it straight to Luxe Vista over WhatsApp or email. No account, no hold on your card.</p>
+      <section className="section section--linen-soft">
+        <div className="container">
+          <div className="split">
+            <div className="split-copy">
+              <ContactForm
+                initialValues={{
+                  checkin: searchParams?.checkin || "",
+                  checkout: searchParams?.checkout || "",
+                  guests: searchParams?.guests || "2",
+                }}
+              />
+            </div>
+            <div className="split-copy">
+              <p className="eyebrow">Prefer to reach us directly?</p>
+              <h2 style={{ fontSize: "1.6rem", marginBottom: "1rem" }}>Other ways to book</h2>
+              <div className="contact-methods">
+                <div className="contact-method">
+                  <div>
+                    <strong>WhatsApp</strong>
+                    <span>+91 70185 12267 — fastest response.</span>
+                  </div>
+                </div>
+                <div className="contact-method">
+                  <div>
+                    <strong>Phone</strong>
+                    <span>+91 93171 90212</span>
+                  </div>
+                </div>
+                <div className="contact-method">
+                  <div>
+                    <strong>Email</strong>
+                    <span>harvinder2414@gmail.com</span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-          <BookingForm />
+        </div>
+      </section>
+
+      <section className="section section--night">
+        <div className="container">
+          <div className="section-head">
+            <p className="eyebrow">What happens next</p>
+            <h2>How booking works</h2>
+          </div>
+          <div className="steps">
+            <div className="step">
+              <h3>Send your dates</h3>
+              <p>Tell us when you&apos;d like to arrive, how many guests, and which room caught your eye.</p>
+            </div>
+            <div className="step">
+              <h3>We confirm availability</h3>
+              <p>We check the room and reply on WhatsApp, usually the same day.</p>
+            </div>
+            <div className="step">
+              <h3>You get a confirmation</h3>
+              <p>Once confirmed, your room is held for your dates.</p>
+            </div>
+          </div>
         </div>
       </section>
     </>

@@ -1,12 +1,56 @@
+import Link from "next/link";
+import RoomVisual from "@/components/RoomVisual";
+import { rooms } from "@/lib/rooms";
+
 export const metadata = {
-  title: "Room Categories | Luxe Vista, Snow Crest",
-  description: "Four room categories at Luxe Vista — King Mountain View, Scenic Balcony, Panorama Balcony and Family Suite.",
+  title: "Rooms & Rates — Luxe Vista by Snow Crest",
+  description: "27 rooms across four categories at Luxe Vista by Snow Crest, Banikhet, Dalhousie — starting from ₹2,300 a night.",
 };
 
-export default function Rooms() {
+export default function RoomsPage() {
   return (
     <>
-      <div dangerouslySetInnerHTML={{ __html: "<section class=\"page-banner\">\n  <img src=\"/images/img-b2d7a365b0.jpg\" alt=\"Rooms, sorted by what you'll wake up to\">\n  <div class=\"wrap page-banner-content\">\n    <div class=\"breadcrumb\"><a href=\"/\">Home</a> / Rooms</div>\n    <h1>Rooms, sorted by what you'll wake up to</h1>\n    <p>Every room falls into one of four categories \u2014 pick by view and space, not by guesswork.</p>\n  </div>\n</section>\n<section class=\"rooms\" id=\"rooms\" style=\"padding:52px 0;\">\n  <div class=\"wrap\">\n    <div class=\"section-head reveal\">\n      <div class=\"eyebrow\">Luxe Vista \u00b7 Room Categories</div>\n      <h2>Rooms, sorted by what you'll wake up to</h2>\n      <p>Every room falls into one of four categories \u2014 pick by view and space, not by guesswork.</p>\n    </div>\n    <div class=\"why-grid\" style=\"grid-template-columns:repeat(2,1fr);\">\n      <div class=\"why-card reveal\" style=\"padding:0; background:transparent;\">\n        <img src=\"/images/img-1adc152893.jpg\" alt=\"King Mountain View\" style=\"width:100%; height:190px; object-fit:cover; border-radius:4px; margin-bottom:14px;\">\n        <h4>King Mountain View</h4>\n        <p>A king bed facing a full mountain-facing window \u2014 no balcony, just an uninterrupted ridge view.</p>\n      </div>\n      <div class=\"why-card reveal\" style=\"padding:0; background:transparent;\">\n        <img src=\"/images/img-37418bbbca.jpg\" alt=\"Rooms Scenic View\" style=\"width:100%; height:190px; object-fit:cover; border-radius:4px; margin-bottom:14px;\">\n        <h4>Rooms Scenic View</h4>\n        <p>Step onto a private balcony without leaving the room \u2014 valley views from the bed and outside both.</p>\n      </div>\n      <div class=\"why-card reveal\" style=\"padding:0; background:transparent;\">\n        <img src=\"/images/img-b2d7a365b0.jpg\" alt=\"Panorama Balcony\" style=\"width:100%; height:190px; object-fit:cover; border-radius:4px; margin-bottom:14px;\">\n        <h4>Panorama Balcony</h4>\n        <p>Our widest sightline \u2014 a full panoramic window paired with a balcony onto the Dhauladhar range.</p>\n      </div>\n      <div class=\"why-card reveal\" style=\"padding:0; background:transparent;\">\n        <img src=\"/images/img-fc10897f06.jpg\" alt=\"Family Suite\" style=\"width:100%; height:190px; object-fit:cover; border-radius:4px; margin-bottom:14px;\">\n        <h4>Family Suite</h4>\n        <p>Two double beds and a panoramic balcony \u2014 space for a family or group, booked as a single room.</p>\n      </div>\n    </div>\n  </div>\n</section>\n<section class=\"final-cta\">\n  <img src=\"/images/img-4e2ca29390.jpg\" alt=\"Mountain view near Luxe Vista, Dalhousie\">\n  <div class=\"final-cta-content\">\n    <h2>Your Next Stay Starts Here.</h2>\n    <p>Real rooms, real photos, and a direct line to the property \u2014 plan your stay at Luxe Vista.</p>\n    <div class=\"final-cta-actions\">\n      <a class=\"btn btn-dark\" style=\"background:#fff; color:var(--charcoal); border-color:#fff;\" href=\"/luxe-vista\">See Luxe Vista</a>\n      <a class=\"btn btn-outline\" style=\"color:#fff;\" href=\"/contact#contact\">Book Your Stay</a>\n    </div>\n  </div>\n</section>" }} />
+      <section className="page-hero">
+        <div className="container">
+          <p className="eyebrow">Stay</p>
+          <h1>Rooms &amp; rates</h1>
+          <p>
+            27 rooms across four categories, starting from ₹2,300 a night.
+            Every room is verified in person and every photo shows the
+            actual room.
+          </p>
+        </div>
+      </section>
+
+      <section className="section section--linen-soft">
+        <div className="container">
+          {rooms.map((room, i) => (
+            <div key={room.slug} className={`room-row ${i % 2 === 1 ? "room-row--reverse" : ""}`}>
+              <div className="room-art">
+                <RoomVisual room={room} tone={["dusk", "copper", "spruce", "dawn"][i % 4]} seed={i + 10} />
+              </div>
+              <div className="room-info">
+                <p className="tagline">{room.tagline}</p>
+                <h3>{room.name}</h3>
+                <div className="room-meta">
+                  <span>{room.view}</span>
+                  <span>{room.occupancy}</span>
+                </div>
+                <p>{room.blurb}</p>
+                <p className="room-price" style={{ marginTop: "1rem" }}>{room.priceLabel}</p>
+                <div className="room-actions">
+                  <Link href={`/rooms/${room.slug}`} className="btn btn--outline-ink">
+                    Room details
+                  </Link>
+                  <Link href={`/contact?room=${room.slug}`} className="text-link">
+                    Check availability →
+                  </Link>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
     </>
   );
 }

@@ -1,16 +1,274 @@
-import QuickBookingBar from "../components/QuickBookingBar";
+import Link from "next/link";
+import RoomVisual from "@/components/RoomVisual";
+import RidgeDivider from "@/components/RidgeDivider";
+import BookingWidget from "@/components/BookingWidget";
+import { rooms } from "@/lib/rooms";
+import { getAllPosts } from "@/lib/posts";
 
-export const metadata = {
-  title: "Snow Crest Hotels | Luxe Vista, Dalhousie",
-  description: "Snow Crest Hotels — Luxe Vista, a boutique mountain-view property in Banikhet, Dalhousie. Verified rooms, real photos, direct WhatsApp booking.",
-};
+export default function HomePage() {
+  const featuredRooms = rooms.slice(0, 3);
+  const posts = getAllPosts().slice(0, 3);
 
-export default function Home() {
   return (
     <>
-      <div dangerouslySetInnerHTML={{ __html: "<section class=\"hero\" id=\"home\">\n  <img src=\"/images/img-af5b5a939f.jpg\" alt=\"Snow Crest hillside property at dusk\">\n  <div class=\"wrap hero-content\">\n    <div class=\"elev-badge\"><svg viewBox=\"0 0 24 24\" fill=\"none\"><path d=\"M3 18L9 8L12.5 13.5L15 10L21 18H3Z\" stroke=\"#fff\" stroke-width=\"1.5\" stroke-linejoin=\"round\"/></svg> Banikhet, Dalhousie \u00b7 ~6,000 FT</div>\n    <h1>Luxe Vista - A Mountain-View Hotel in Dalhousie</h1>\n    <p class=\"hero-tagline\">Stay Somewhere Worth Remembering.</p>\n    <p>Exceptional stays, thoughtful hospitality and experiences designed around you \u2014 in the hills above Dalhousie.</p>\n    <div class=\"hero-cta\">\n      <a class=\"btn btn-dark\" style=\"background:#fff; color:var(--charcoal); border-color:#fff;\" href=\"/luxe-vista\">See Luxe Vista</a>\n      <a class=\"btn btn-outline\" style=\"color:#fff;\" href=\"/contact#contact\">Book Your Stay</a>\n    </div>\n  </div>\n</section>\n" }} />
-      <QuickBookingBar />
-      <div dangerouslySetInnerHTML={{ __html: "\n<section class=\"intro\" id=\"about\">\n  <div class=\"wrap intro-grid\">\n    <img class=\"reveal\" src=\"/images/img-6710dd8e78.jpg\" alt=\"View from Snow Crest property\">\n    <div class=\"reveal\">\n      <div class=\"eyebrow\">Who We Are</div>\n      <h2>Mountain-View Hospitality in Dalhousie</h2>\n      <p>Snow Crest is a small hill-hospitality group focused on properties worth staying at. Luxe Vista by Snow Crest is a mountain-view hotel in Banikhet, Dalhousie, offering thoughtfully designed rooms, scenic surroundings and a comfortable base for exploring Dalhousie and nearby Khajjiar. Every room is verified in person, every photo shows the actual room, and every booking sits on one calendar, so an open date is genuinely open.</p>\n      <a class=\"link-arrow\" href=\"/luxe-vista\">Discover More \u2192</a>\n    </div>\n  </div>\n</section>\n<svg class=\"contour wrap\" viewBox=\"0 0 1220 34\" preserveAspectRatio=\"none\"><path d=\"M0 20 Q 150 5 300 20 T 600 20 T 900 20 T 1220 20\"/><path class=\"mid\" d=\"M0 24 Q 150 12 300 24 T 600 24 T 900 24 T 1220 24\"/></svg>\n<section class=\"properties\" id=\"property\">\n  <div class=\"wrap\">\n    <div class=\"section-head reveal\">\n      <div class=\"eyebrow\">The Property</div>\n      <h2>Luxe Vista by Snow Crest</h2>\n      <p>Snow Crest's flagship property, Luxe Vista is a mountain-view stay in Banikhet, Dalhousie. Everything you see below is real \u2014 the rooms, the photos, the location and the experience.</p>\n    </div>\n    <div class=\"prop-card feature reveal\" style=\"max-width:100%;\">\n      <div class=\"prop-img\">\n        <img src=\"/images/img-bba4f329fe.jpg\" alt=\"Luxe Vista by Snow Crest exterior, Banikhet Dalhousie\">\n      </div>\n      <div class=\"prop-body\">\n        <div class=\"prop-loc\">Banikhet \u00b7 Dalhousie \u00b7 Himachal Pradesh \u00b7 ~6,000 ft</div>\n        <h3>27 rooms, four view categories, one hillside.</h3>\n        <p>Ten kilometres above the Dalhousie highway, verified in person and photographed as-is \u2014 mountain views from every room, balconies from most.</p>\n        <div class=\"amenity-row\">\n          <span class=\"amenity-pill\">Mountain View Rooms</span>\n          <span class=\"amenity-pill\">Family Suites</span>\n          <span class=\"amenity-pill\">In-room Heating</span>\n          <span class=\"amenity-pill\">Free Parking</span>\n          <span class=\"amenity-pill\">Marble Bathrooms</span>\n        </div>\n        <div class=\"prop-foot\">\n          <div class=\"price\">Starting from <b>\u20b92,300</b> / night</div>\n          <div class=\"prop-actions\">\n            <a class=\"btn btn-outline\" href=\"/rooms\">View Rooms</a>\n            <a class=\"btn btn-dark\" target=\"_blank\" href=\"https://wa.me/917018512267?text=Hi%20Snow%20Crest%2C%20I%27d%20like%20to%20book%20a%20stay%20at%20Luxe%20Vista.\">Book on WhatsApp</a>\n          </div>\n        </div>\n      </div>\n    </div>\n    <p style=\"text-align:center; font-size:12.5px; color:#9a917f; margin-top:26px;\">Snow Crest is built to add more properties over time \u2014 this page will grow with the collection.</p>\n  </div>\n</section>\n<section class=\"why\">\n  <div class=\"wrap\">\n    <div class=\"section-head reveal\">\n      <div class=\"eyebrow\">Why Choose Snow Crest</div>\n      <h2>What Staying at Luxe Vista in Dalhousie Means</h2>\n    </div>\n    <div class=\"why-grid\">\n      <div class=\"why-card reveal\">\n        <svg viewBox=\"0 0 24 24\" fill=\"none\"><path d=\"M12 3l2.5 5 5.5.8-4 3.9.9 5.5-4.9-2.6-4.9 2.6.9-5.5-4-3.9 5.5-.8L12 3z\" stroke-width=\"1.4\"/></svg>\n        <h4>Exceptional Hospitality</h4>\n        <p>Small enough that the staff know your name by day two of your stay.</p>\n      </div>\n      <div class=\"why-card reveal\">\n        <svg viewBox=\"0 0 24 24\" fill=\"none\"><path d=\"M12 21s-7-6.5-7-11a7 7 0 0114 0c0 4.5-7 11-7 11z\" stroke-width=\"1.4\"/><circle cx=\"12\" cy=\"10\" r=\"2.4\" stroke-width=\"1.4\"/></svg>\n        <h4>Prime Location in Banikhet</h4>\n        <p>Chosen for the view first - a peaceful hillside location in Banikhet, approximately 7 km from Dalhousie Mall Road.</p>\n      </div>\n      <div class=\"why-card reveal\">\n        <svg viewBox=\"0 0 24 24\" fill=\"none\"><rect x=\"3\" y=\"10\" width=\"18\" height=\"9\" rx=\"1\" stroke-width=\"1.4\"/><path d=\"M7 10V7a5 5 0 0110 0v3\" stroke-width=\"1.4\"/></svg>\n        <h4>Comfortable Stays</h4>\n        <p>Heated rooms, real mattresses, hot water that actually stays hot in winter.</p>\n      </div>\n      <div class=\"why-card reveal\">\n        <svg viewBox=\"0 0 24 24\" fill=\"none\"><circle cx=\"12\" cy=\"8\" r=\"3.4\" stroke-width=\"1.4\"/><path d=\"M5 20c0-3.5 3-6 7-6s7 2.5 7 6\" stroke-width=\"1.4\"/></svg>\n        <h4>Personalized Service</h4>\n        <p>Room requests, dietary notes, and travel plans \u2014 handled by a person, not a ticket queue.</p>\n      </div>\n      <div class=\"why-card reveal\">\n        <svg viewBox=\"0 0 24 24\" fill=\"none\"><rect x=\"3\" y=\"4\" width=\"18\" height=\"16\" rx=\"1.5\" stroke-width=\"1.4\"/><path d=\"M3 9h18M8 3v3M16 3v3\" stroke-width=\"1.4\"/></svg>\n        <h4>Mountain-View Amenities</h4>\n        <p>Marble bathrooms, mountain-facing balconies, and heating designed for comfortable stays through the hill winters.</p>\n      </div>\n      <div class=\"why-card reveal\">\n        <svg viewBox=\"0 0 24 24\" fill=\"none\"><path d=\"M4 12h16M4 12l4-4M4 12l4 4\" stroke-width=\"1.4\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>\n        <h4>Seamless Booking</h4>\n        <p>One calendar, one price, no surprise charge at checkout or at the front desk.</p>\n      </div>\n    </div>\n  </div>\n</section>\n<section class=\"final-cta\">\n  <img src=\"/images/img-4e2ca29390.jpg\" alt=\"Mountain view near Luxe Vista, Dalhousie\">\n  <div class=\"final-cta-content\">\n    <h2>Rooms & Suites at Luxe Vista, Dalhousie</h2>\n    <p>Explore real rooms, real photos and comfortable stays at Luxe Vista, a mountain-view hotel in Dalhousie. Find the right room for your stay and connect directly with the property to plan your visit.</p>\n    <div class=\"final-cta-actions\">\n      <a class=\"btn btn-dark\" style=\"background:#fff; color:var(--charcoal); border-color:#fff;\" href=\"/luxe-vista\">See Luxe Vista</a>\n      <a class=\"btn btn-outline\" style=\"color:#fff;\" href=\"/contact#contact\">Book Your Stay</a>\n    </div>\n  </div>\n</section>" }} />
+      {/* ---------- HERO ---------- */}
+      <section className="hero hero--photo">
+        <div className="container">
+          <div className="hero-grid" style={{ gridTemplateColumns: "1fr", display: "grid" }}>
+            <div>
+              <p className="hero-eyebrow">Banikhet, Dalhousie · Himachal Pradesh</p>
+              <h1>Stay somewhere worth remembering.</h1>
+              <p className="hero-sub">
+                Luxe Vista by Snow Crest is a mountain-view hotel roughly
+                6,000 ft up, about 7 km from Dalhousie Mall Road. Every room
+                is verified in person, every photo shows the actual room,
+                and every booking sits on one calendar — so an open date is
+                genuinely open.
+              </p>
+              <div className="hero-actions">
+                <Link href="/rooms" className="btn btn--copper">
+                  View rooms &amp; rates
+                </Link>
+                <Link href="/luxe-vista" className="btn btn--outline-night">
+                  About Luxe Vista
+                </Link>
+              </div>
+            </div>
+          </div>
+
+          <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: "2rem", position: "relative", zIndex: 3 }}>
+            <div style={{ maxWidth: "26rem" }}>
+              <BookingWidget />
+            </div>
+          </div>
+        </div>
+
+        <svg
+          className="hero-ridge"
+          viewBox="0 0 1200 260"
+          preserveAspectRatio="none"
+          aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M0,260 L0,150 L90,110 L180,160 L280,90 L360,140 L470,70 L560,130 L660,60 L760,120 L870,80 L960,150 L1060,100 L1150,160 L1200,120 L1200,260 Z"
+            fill="#16303d"
+            opacity="0.75"
+          />
+          <path
+            d="M0,260 L0,190 L140,150 L240,200 L340,140 L440,190 L560,130 L660,180 L780,140 L900,200 L1020,150 L1120,195 L1200,170 L1200,260 Z"
+            fill="#0d1b24"
+          />
+        </svg>
+      </section>
+
+      {/* ---------- WHO WE ARE ---------- */}
+      <section className="section section--linen">
+        <div className="container">
+          <div className="split">
+            <div className="split-copy">
+              <p className="eyebrow">Who we are</p>
+              <h2>A small hospitality group, focused on properties worth staying at</h2>
+              <p>
+                Snow Crest is a small hill-hospitality group. Luxe Vista is
+                its flagship property — a mountain-view hotel in Banikhet,
+                Dalhousie, offering thoughtfully designed rooms, scenic
+                surroundings and a comfortable base for exploring Dalhousie
+                and nearby Khajjiar.
+              </p>
+              <p>
+                Every room is verified in person, every photo shows the
+                actual room, and every booking sits on one calendar — so an
+                open date is genuinely open. Small enough that the staff
+                know your name by day two of your stay.
+              </p>
+              <div className="split-facts">
+                <div className="split-fact">
+                  <strong>27</strong>
+                  <span>Rooms across 4 categories</span>
+                </div>
+                <div className="split-fact">
+                  <strong>~6,000ft</strong>
+                  <span>Elevation, Banikhet</span>
+                </div>
+                <div className="split-fact">
+                  <strong>~7km</strong>
+                  <span>From Dalhousie Mall Road</span>
+                </div>
+              </div>
+            </div>
+            <div className="split-art">
+              <img className="photo" src="/images/valley-views.webp" alt="Valley views from Luxe Vista" loading="lazy" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ---------- ROOMS PREVIEW ---------- */}
+      <section className="section section--linen-soft">
+        <div className="container">
+          <div className="section-head">
+            <p className="eyebrow">Stay</p>
+            <h2>Rooms &amp; rates</h2>
+            <p>27 rooms across four categories, starting from ₹2,300 a night.</p>
+          </div>
+
+          {featuredRooms.map((room, i) => (
+            <div key={room.slug} className={`room-row ${i % 2 === 1 ? "room-row--reverse" : ""}`}>
+              <div className="room-art">
+                <RoomVisual room={room} tone={["dusk", "copper", "spruce"][i % 3]} seed={i + 3} />
+              </div>
+              <div className="room-info">
+                <p className="tagline">{room.tagline}</p>
+                <h3>{room.name}</h3>
+                <div className="room-meta">
+                  <span>{room.view}</span>
+                  <span>{room.occupancy}</span>
+                </div>
+                <p className="room-price">{room.priceLabel}</p>
+                <div className="room-actions">
+                  <Link href={`/rooms/${room.slug}`} className="text-link">
+                    View room →
+                  </Link>
+                </div>
+              </div>
+            </div>
+          ))}
+
+          <div style={{ textAlign: "center", marginTop: "3rem" }}>
+            <Link href="/rooms" className="btn btn--outline-ink">
+              See all rooms &amp; rates
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ---------- WHY CHOOSE SNOW CREST ---------- */}
+      <section className="section section--night">
+        <div className="container">
+          <RidgeDivider tone="night" />
+          <div className="section-head" style={{ marginTop: "2.5rem" }}>
+            <p className="eyebrow">Why choose us</p>
+            <h2>Chosen for the view first</h2>
+            <p>A peaceful hillside location in Banikhet, roughly 7 km from Dalhousie Mall Road.</p>
+          </div>
+
+          <div className="amenity-grid">
+            <div className="amenity">
+              <h3>Comfortable, all winter</h3>
+              <p>Heated rooms, real mattresses, and hot water that actually stays hot in winter.</p>
+            </div>
+            <div className="amenity">
+              <h3>Handled by a person</h3>
+              <p>Room requests, dietary notes, and travel plans — handled by a person, not a ticket queue.</p>
+            </div>
+            <div className="amenity">
+              <h3>Mountain-facing by design</h3>
+              <p>Marble bathrooms, mountain-facing balconies, and heating designed for comfortable stays through the hill winters.</p>
+            </div>
+            <div className="amenity">
+              <h3>No surprises at checkout</h3>
+              <p>One calendar, one price, no surprise charge at checkout or at the front desk.</p>
+            </div>
+          </div>
+
+          <div style={{ textAlign: "center", marginTop: "3rem" }}>
+            <Link href="/luxe-vista" className="btn btn--outline-night">
+              Explore Luxe Vista
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ---------- TESTIMONIALS ---------- */}
+      <section className="section section--night" style={{ paddingTop: 0 }}>
+        <div className="container">
+          <div className="section-head">
+            <p className="eyebrow">Guests say</p>
+            <h2 style={{ fontSize: "1.6rem" }}>Rated highly on Google &amp; Tripadvisor</h2>
+          </div>
+          <div className="testimonial-row">
+            <div className="testimonial">
+              <blockquote>
+                &ldquo;Clean, tidy, and a beautiful view of snow-laden
+                mountains — the food was excellent too.&rdquo;
+              </blockquote>
+              <cite>— Guest review, Google</cite>
+            </div>
+            <div className="testimonial">
+              <blockquote>
+                &ldquo;Staff were courteous and helpful, and the location
+                was genuinely peaceful.&rdquo;
+              </blockquote>
+              <cite>— Guest review, Tripadvisor</cite>
+            </div>
+            <div className="testimonial">
+              <blockquote>
+                &ldquo;A memorable stay — we&apos;d come back for the view alone.&rdquo;
+              </blockquote>
+              <cite>— Guest review, Google</cite>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ---------- BLOG TEASER ---------- */}
+      <section className="section section--linen">
+        <div className="container">
+          <div className="section-head">
+            <p className="eyebrow">From the hills</p>
+            <h2>The journal</h2>
+            <p>Travel notes on Dalhousie, Khajjiar, and the surrounding hills.</p>
+          </div>
+
+          {posts.map((post) => (
+            <div key={post.slug} className="post-row">
+              <div className="post-date">
+                {post.date &&
+                  new Date(post.date).toLocaleDateString("en-US", {
+                    month: "short",
+                    day: "numeric",
+                    year: "numeric",
+                  })}
+              </div>
+              <div>
+                <h3>
+                  <Link href={`/blog/${post.slug}`} style={{ textDecoration: "none", color: "inherit" }}>
+                    {post.title}
+                  </Link>
+                </h3>
+                <p>{post.excerpt}</p>
+                <Link href={`/blog/${post.slug}`} className="text-link" style={{ marginTop: "0.75rem", display: "inline-flex" }}>
+                  Read more →
+                </Link>
+              </div>
+            </div>
+          ))}
+
+          <div style={{ textAlign: "center", marginTop: "3rem" }}>
+            <Link href="/blog" className="btn btn--outline-ink">
+              Read the journal
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ---------- CLOSING CTA ---------- */}
+      <section className="section section--night" style={{ textAlign: "center" }}>
+        <div className="container">
+          <p className="eyebrow">Plan your stay</p>
+          <h2 style={{ fontSize: "clamp(2rem, 4vw, 3rem)", maxWidth: "32rem", margin: "0 auto 1.5rem" }}>
+            Everything you see is real
+          </h2>
+          <p style={{ color: "var(--mist-soft)", maxWidth: "30rem", margin: "0 auto 2rem" }}>
+            The rooms, the photos, the location and the experience. Send us
+            your dates on WhatsApp and we&apos;ll confirm the same day.
+          </p>
+          <Link href="/contact" className="btn btn--copper">
+            Book on WhatsApp
+          </Link>
+        </div>
+      </section>
     </>
   );
 }

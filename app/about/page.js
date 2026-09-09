@@ -1,12 +1,87 @@
+import Link from "next/link";
+import RidgeDivider from "@/components/RidgeDivider";
+
 export const metadata = {
-  title: "About Us | Snow Crest Hotels",
-  description: "Snow Crest is a small hill-hospitality group running boutique, verified stays in Himachal Pradesh.",
+  title: "About Us — Luxe Vista by Snow Crest",
+  description: "About Snow Crest and Luxe Vista, a mountain-view hotel in Banikhet, Dalhousie, Himachal Pradesh.",
 };
 
-export default function About() {
+export default function AboutPage() {
   return (
     <>
-      <div dangerouslySetInnerHTML={{ __html: "<section class=\"page-banner\">\n  <img src=\"/images/img-6710dd8e78.jpg\" alt=\"About Snow Crest\">\n  <div class=\"wrap page-banner-content\">\n    <div class=\"breadcrumb\"><a href=\"/\">Home</a> / About Us</div>\n    <h1>About Snow Crest</h1>\n    <p>A small hill-hospitality group, built one verified property at a time.</p>\n  </div>\n</section>\n<section class=\"intro\" id=\"about\">\n  <div class=\"wrap intro-grid\">\n    <img class=\"reveal\" src=\"/images/img-6710dd8e78.jpg\" alt=\"View from Snow Crest property\">\n    <div class=\"reveal\">\n      <div class=\"eyebrow\">Who We Are</div>\n      <h2>Hospitality built around the view.</h2>\n      <p>Snow Crest is a small hill-hospitality group \u2014 we don't chase scale, we chase properties worth staying at. Every room is verified in person, every photo is the actual room, and every booking sits on one calendar, so an open date is genuinely open.</p>\n      <a class=\"link-arrow\" href=\"/luxe-vista\">Discover More \u2192</a>\n    </div>\n  </div>\n</section>\n<section class=\"why\">\n  <div class=\"wrap\">\n    <div class=\"section-head reveal\">\n      <div class=\"eyebrow\">Why Choose Snow Crest</div>\n      <h2>What staying with us actually means</h2>\n    </div>\n    <div class=\"why-grid\">\n      <div class=\"why-card reveal\">\n        <svg viewBox=\"0 0 24 24\" fill=\"none\"><path d=\"M12 3l2.5 5 5.5.8-4 3.9.9 5.5-4.9-2.6-4.9 2.6.9-5.5-4-3.9 5.5-.8L12 3z\" stroke-width=\"1.4\"/></svg>\n        <h4>Exceptional Hospitality</h4>\n        <p>Small enough that the staff know your name by day two of your stay.</p>\n      </div>\n      <div class=\"why-card reveal\">\n        <svg viewBox=\"0 0 24 24\" fill=\"none\"><path d=\"M12 21s-7-6.5-7-11a7 7 0 0114 0c0 4.5-7 11-7 11z\" stroke-width=\"1.4\"/><circle cx=\"12\" cy=\"10\" r=\"2.4\" stroke-width=\"1.4\"/></svg>\n        <h4>Prime Location</h4>\n        <p>Chosen for the view first \u2014 ten kilometres of quiet hillside above the Dalhousie highway.</p>\n      </div>\n      <div class=\"why-card reveal\">\n        <svg viewBox=\"0 0 24 24\" fill=\"none\"><rect x=\"3\" y=\"10\" width=\"18\" height=\"9\" rx=\"1\" stroke-width=\"1.4\"/><path d=\"M7 10V7a5 5 0 0110 0v3\" stroke-width=\"1.4\"/></svg>\n        <h4>Comfortable Stays</h4>\n        <p>Heated rooms, real mattresses, hot water that actually stays hot in winter.</p>\n      </div>\n      <div class=\"why-card reveal\">\n        <svg viewBox=\"0 0 24 24\" fill=\"none\"><circle cx=\"12\" cy=\"8\" r=\"3.4\" stroke-width=\"1.4\"/><path d=\"M5 20c0-3.5 3-6 7-6s7 2.5 7 6\" stroke-width=\"1.4\"/></svg>\n        <h4>Personalized Service</h4>\n        <p>Room requests, dietary notes, and travel plans \u2014 handled by a person, not a ticket queue.</p>\n      </div>\n      <div class=\"why-card reveal\">\n        <svg viewBox=\"0 0 24 24\" fill=\"none\"><rect x=\"3\" y=\"4\" width=\"18\" height=\"16\" rx=\"1.5\" stroke-width=\"1.4\"/><path d=\"M3 9h18M8 3v3M16 3v3\" stroke-width=\"1.4\"/></svg>\n        <h4>Premium Amenities</h4>\n        <p>Marble bathrooms, mountain-facing balconies, and heating built for hill winters.</p>\n      </div>\n      <div class=\"why-card reveal\">\n        <svg viewBox=\"0 0 24 24\" fill=\"none\"><path d=\"M4 12h16M4 12l4-4M4 12l4 4\" stroke-width=\"1.4\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>\n        <h4>Seamless Booking</h4>\n        <p>One calendar, one price, no surprise charge at checkout or at the front desk.</p>\n      </div>\n    </div>\n  </div>\n</section>\n<section class=\"final-cta\">\n  <img src=\"/images/img-4e2ca29390.jpg\" alt=\"Mountain view near Luxe Vista, Dalhousie\">\n  <div class=\"final-cta-content\">\n    <h2>Your Next Stay Starts Here.</h2>\n    <p>Real rooms, real photos, and a direct line to the property \u2014 plan your stay at Luxe Vista.</p>\n    <div class=\"final-cta-actions\">\n      <a class=\"btn btn-dark\" style=\"background:#fff; color:var(--charcoal); border-color:#fff;\" href=\"/luxe-vista\">See Luxe Vista</a>\n      <a class=\"btn btn-outline\" style=\"color:#fff;\" href=\"/contact#contact\">Book Your Stay</a>\n    </div>\n  </div>\n</section>" }} />
+      <section className="page-hero">
+        <div className="container">
+          <p className="eyebrow">About us</p>
+          <h1>Hospitality, built around the view</h1>
+          <p>
+            Snow Crest is a small hill-hospitality group. Luxe Vista, in
+            Banikhet, Dalhousie, is its flagship property.
+          </p>
+        </div>
+      </section>
+
+      <section className="section section--linen-soft">
+        <div className="container">
+          <div className="split">
+            <div className="split-copy">
+              <p className="eyebrow">Our approach</p>
+              <h2>What we mean by &ldquo;worth remembering&rdquo;</h2>
+              <p>
+                We keep things simple: every room is verified in person,
+                every photo on this site shows the actual room, and every
+                booking sits on a single calendar — so when we tell you a
+                date is open, it genuinely is.
+              </p>
+              <p>
+                Banikhet sits roughly 6,000 ft up and about 7 km from
+                Dalhousie Mall Road — close enough for an easy day in town,
+                far enough to be genuinely quiet at night. It&apos;s also a
+                comfortable base for a day trip to Khajjiar.
+              </p>
+            </div>
+            <div className="split-art">
+              <img className="photo" src="/images/lobby.avif" alt="The lobby at Luxe Vista" loading="lazy" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="section section--night">
+        <div className="container">
+          <RidgeDivider tone="night" />
+          <div className="section-head" style={{ marginTop: "2.5rem" }}>
+            <p className="eyebrow">In practice</p>
+            <h2>How that shows up during your stay</h2>
+          </div>
+          <div className="amenity-grid">
+            <div className="amenity">
+              <h3>Direct communication</h3>
+              <p>Message us on WhatsApp and speak to a person who knows the property, not a call centre.</p>
+            </div>
+            <div className="amenity">
+              <h3>Consistent comfort</h3>
+              <p>Heated rooms and hot water year-round, including through the colder months.</p>
+            </div>
+            <div className="amenity">
+              <h3>No surprise charges</h3>
+              <p>The rate we quote is the rate you pay — nothing added at checkout.</p>
+            </div>
+            <div className="amenity">
+              <h3>Small enough to notice</h3>
+              <p>27 rooms means the staff get to know returning guests, not just their booking number.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="section section--linen" style={{ textAlign: "center" }}>
+        <div className="container">
+          <h2 style={{ maxWidth: "28rem", margin: "0 auto 1.5rem" }}>Come see it for yourself</h2>
+          <Link href="/contact" className="btn btn--copper">
+            Message us on WhatsApp
+          </Link>
+        </div>
+      </section>
     </>
   );
 }

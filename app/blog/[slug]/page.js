@@ -1,43 +1,53 @@
-import Link from "next/link";
 import { notFound } from "next/navigation";
-import { getAllPostSlugs, getPostBySlug } from "../../../lib/posts";
+import Link from "next/link";
+import { getAllPosts, getPostBySlug } from "@/lib/posts";
 
 export function generateStaticParams() {
-  return getAllPostSlugs().map((slug) => ({ slug }));
+  return getAllPosts().map((post) => ({ slug: post.slug }));
 }
 
 export function generateMetadata({ params }) {
   const post = getPostBySlug(params.slug);
   if (!post) return {};
-  return { title: `${post.title} | Snow Crest Hotels`, description: post.excerpt };
+  return {
+    title: `${post.title} — Luxe Vista by Snow Crest`,
+    description: post.excerpt,
+  };
 }
 
-export default function BlogPost({ params }) {
+export default function BlogPostPage({ params }) {
   const post = getPostBySlug(params.slug);
-  if (!post) return notFound();
+  if (!post) notFound();
 
   return (
     <>
-      <section className="page-banner" style={{ height: "32vh", minHeight: "240px" }}>
-        <img src={post.image || "/images/img-af5b5a939f.jpg"} alt={post.title} />
-        <div className="wrap page-banner-content">
-          <div className="breadcrumb">
-            <Link href="/">Home</Link> / <Link href="/blog">Blog</Link>
-          </div>
+      <section className="page-hero">
+        <div className="container">
+          <p className="eyebrow">
+            {post.date &&
+              new Date(post.date).toLocaleDateString("en-US", {
+                month: "long",
+                day: "numeric",
+                year: "numeric",
+              })}
+          </p>
           <h1>{post.title}</h1>
         </div>
       </section>
 
-      <article className="blog-single">
-        <div className="blog-date">
-          {new Date(post.date).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}
+      <section className="section section--linen-soft">
+        <div className="container">
+          <div
+            className="post-body"
+            dangerouslySetInnerHTML={{ __html: post.html }}
+          />
+          <div style={{ textAlign: "center", marginTop: "3rem" }}>
+            <Link href="/blog" className="text-link">
+              ← Back to the journal
+            </Link>
+          </div>
         </div>
-        <div className="entry-content" dangerouslySetInnerHTML={{ __html: post.contentHtml }} />
-      </article>
-
-      <div className="wrap" style={{ maxWidth: "760px", paddingBottom: "60px" }}>
-        <Link className="btn btn-dark" href="/contact#contact">Plan Your Stay at Luxe Vista</Link>
-      </div>
+      </section>
     </>
   );
 }

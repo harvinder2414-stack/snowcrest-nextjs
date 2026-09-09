@@ -1,12 +1,101 @@
+import Link from "next/link";
+import RidgeDivider from "@/components/RidgeDivider";
+
 export const metadata = {
-  title: "Luxe Vista by Snow Crest | Banikhet, Dalhousie",
-  description: "27 rooms, four view categories, verified in person. Luxe Vista is Snow Crest's flagship property in Banikhet, Dalhousie.",
+  title: "Luxe Vista — Snow Crest's Flagship Property",
+  description: "Luxe Vista by Snow Crest is a mountain-view hotel in Banikhet, Dalhousie, roughly 6,000 ft up and 7 km from Dalhousie Mall Road.",
 };
 
-export default function LuxeVista() {
+export default function LuxeVistaPage() {
   return (
     <>
-      <div dangerouslySetInnerHTML={{ __html: "<section class=\"page-banner\">\n  <img src=\"/images/img-bba4f329fe.jpg\" alt=\"Luxe Vista by Snow Crest\">\n  <div class=\"wrap page-banner-content\">\n    <div class=\"breadcrumb\"><a href=\"/\">Home</a> / Luxe Vista</div>\n    <h1>Luxe Vista by Snow Crest</h1>\n    <p>Banikhet \u00b7 Dalhousie \u00b7 Himachal Pradesh \u00b7 ~6,000 ft</p>\n  </div>\n</section>\n<section class=\"properties\" id=\"property\">\n  <div class=\"wrap\">\n    <div class=\"section-head reveal\">\n      <div class=\"eyebrow\">The Property</div>\n      <h2>Luxe Vista by Snow Crest \u2014 Hotel in Dalhousie</h2>\n      <p>Luxe Vista is Snow Crest's flagship property in Banikhet, Dalhousie. This mountain-view hotel offers 27 rooms, scenic views and a comfortable stay near Dalhousie and Khajjiar. Every room, photo and location detail you see is real and verified in person.</p>\n    </div>\n    <div class=\"prop-card feature reveal\" style=\"max-width:100%;\">\n      <div class=\"prop-img\">\n        <img src=\"/images/img-bba4f329fe.jpg\" alt=\"Luxe Vista by Snow Crest exterior, Banikhet Dalhousie\">\n      </div>\n      <div class=\"prop-body\">\n        <div class=\"prop-loc\">Banikhet \u00b7 Dalhousie \u00b7 Himachal Pradesh \u00b7 ~6,000 ft</div>\n        <h3>27 Rooms, Mountain Views & Comfortable Stays in Dalhousie</h3>\n        <p>Luxe Vista by Snow Crest is a mountain-view hotel in Banikhet, around 9 km from GPO Dalhousie Mallcentre. With 27 rooms, four view categories, balconies in most rooms and mountain views from every room, it offers a peaceful and comfortable stay near Dalhousie and Khajjiar.</p>\n        <div class=\"amenity-row\">\n          <span class=\"amenity-pill\">Mountain View Rooms</span>\n          <span class=\"amenity-pill\">Family Suites</span>\n          <span class=\"amenity-pill\">In-room Heating</span>\n          <span class=\"amenity-pill\">Free Parking</span>\n          <span class=\"amenity-pill\">Marble Bathrooms</span>\n        </div>\n        <div class=\"prop-foot\">\n          <div class=\"price\">Starting from <b>\u20b92,300</b> / night</div>\n          <div class=\"prop-actions\">\n            <a class=\"btn btn-outline\" href=\"/rooms\">View Rooms</a>\n            <a class=\"btn btn-dark\" target=\"_blank\" href=\"https://wa.me/917018512267?text=Hi%20Snow%20Crest%2C%20I%27d%20like%20to%20book%20a%20stay%20at%20Luxe%20Vista.\">Book on WhatsApp</a>\n          </div>\n        </div>\n      </div>\n    </div>\n    <p style=\"text-align:center; font-size:12.5px; color:#9a917f; margin-top:26px;\">Snow Crest is built to add more properties over time \u2014 this page will grow with the collection.</p>\n  </div>\n</section>\n<section class=\"gallery\">\n  <div class=\"wrap\">\n    <div class=\"section-head reveal\">\n      <div class=\"eyebrow\">Gallery</div>\n      <h2>A closer look at Luxe Vista</h2>\n    </div>\n    <div class=\"gal-masonry\">\n      <img class=\"g1 lb\" src=\"/images/img-bba4f329fe.jpg\" alt=\"Exterior\">\n      <img class=\"lb\" src=\"/images/img-c6ca6e7af5.jpg\" alt=\"King Mountain View room\">\n      <img class=\"lb\" src=\"/images/img-37418bbbca.jpg\" alt=\"Scenic view room\">\n      <img class=\"g5 lb\" src=\"/images/img-b2d7a365b0.jpg\" alt=\"Panorama balcony room\">\n      <img class=\"lb\" src=\"/images/img-1489ffbfc5.jpg\" alt=\"Family suite\">\n      <img class=\"lb\" src=\"/images/img-e61e44f697.jpg\" alt=\"Bathroom\">\n    </div>\n  </div>\n</section>\n<div class=\"lightbox\" id=\"lightbox\" role=\"dialog\" aria-label=\"Image preview\"><span class=\"close\" id=\"lbClose\" role=\"button\" aria-label=\"Close image preview\" tabindex=\"0\">\u00d7</span><img id=\"lbImg\" src=\"\" alt=\"Enlarged property photo\"></div>\n<section class=\"location\">\n  <div class=\"wrap loc-grid\">\n    <div class=\"map-box reveal\">\n      <svg viewBox=\"0 0 400 320\" xmlns=\"http://www.w3.org/2000/svg\" style=\"width:100%; height:220px;\">\n        <rect width=\"400\" height=\"320\" fill=\"var(--ivory-deep)\"/>\n        <path d=\"M0 200 L60 150 L110 195 L160 130 L220 190 L270 150 L330 195 L400 165 L400 320 L0 320 Z\" fill=\"var(--sand)\" opacity=\"0.6\"/>\n        <path d=\"M0 230 L70 190 L130 220 L190 165 L250 210 L310 180 L400 220 L400 320 L0 320 Z\" fill=\"var(--sand)\" opacity=\"0.85\"/>\n        <circle cx=\"200\" cy=\"120\" r=\"7\" fill=\"var(--olive)\"/>\n        <circle cx=\"200\" cy=\"120\" r=\"15\" fill=\"var(--olive)\" opacity=\"0.22\"/>\n        <text x=\"200\" y=\"95\" text-anchor=\"middle\" font-family=\"Georgia, serif\" font-size=\"15\" fill=\"var(--charcoal)\">Luxe Vista</text>\n      </svg>\n      <div style=\"padding:18px 22px; border-top:1px solid var(--sand-line); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;\">\n        <span style=\"font-size:13px; color:var(--charcoal-soft);\">Banikhet, Dalhousie, Himachal Pradesh</span>\n        <a class=\"btn btn-dark\" style=\"padding:9px 18px; font-size:12.5px;\" target=\"_blank\" href=\"https://www.google.com/maps/dir/?api=1&destination=32.5379,75.9700\">Get Directions</a>\n      </div>\n    </div>\n    <div class=\"loc-copy reveal\">\n      <div class=\"eyebrow\">Location & Nearby Activities</div>\n      <p>Close enough to reach without a plan, far enough to actually feel like the hills. Here's what's around \u2014 from a quiet boating afternoon to a proper day trip.</p>\n      <ul class=\"loc-list\">\n        <li><span>Dalhousie Town Centre</span><span>~15 km</span></li>\n        <li><span>Khajjiar</span><span>~20 km</span></li>\n        <li><span>Taleru \u2014 Chamera Lake Boating Point</span><span>~20\u201325 km</span></li>\n        <li><span>Jot Pass Viewpoint</span><span>~35 km</span></li>\n        <li><span>Sach Pass (open June\u2013October)</span><span>~130 km</span></li>\n        <li><span>Pathankot Railway Station</span><span>~85 km</span></li>\n        <li><span>Gaggal (Kangra) Airport</span><span>~130 km</span></li>\n      </ul>\n      <a class=\"link-arrow\" href=\"/contact#contact\">Get Directions \u2192</a>\n    </div>\n  </div>\n</section>\n<section class=\"final-cta\">\n  <img src=\"/images/img-4e2ca29390.jpg\" alt=\"Mountain view near Luxe Vista, Dalhousie\">\n  <div class=\"final-cta-content\">\n    <h2>Your Next Stay Starts Here.</h2>\n    <p>Real rooms, real photos, and a direct line to the property \u2014 plan your stay at Luxe Vista.</p>\n    <div class=\"final-cta-actions\">\n      <a class=\"btn btn-dark\" style=\"background:#fff; color:var(--charcoal); border-color:#fff;\" href=\"/luxe-vista\">See Luxe Vista</a>\n      <a class=\"btn btn-outline\" style=\"color:#fff;\" href=\"/contact#contact\">Book Your Stay</a>\n    </div>\n  </div>\n</section>" }} />
+      <section className="page-hero">
+        <div className="container">
+          <p className="eyebrow">Snow Crest&apos;s flagship property</p>
+          <h1>Luxe Vista</h1>
+          <p>
+            A mountain-view stay in Banikhet, Dalhousie. Everything you see
+            here is real — the rooms, the photos, the location and the
+            experience.
+          </p>
+        </div>
+      </section>
+
+      <section className="section section--linen-soft">
+        <div className="container">
+          <div className="split">
+            <div className="split-copy">
+              <p className="eyebrow">Location</p>
+              <h2>Chosen for the view first</h2>
+              <p>
+                A peaceful hillside location in Banikhet, approximately 7 km
+                from Dalhousie Mall Road and roughly 6,000 ft above sea
+                level — ten kilometres above the Dalhousie highway.
+                Verified in person and photographed as-is: mountain views
+                from every room, balconies from most.
+              </p>
+              <p>
+                A comfortable base for exploring Dalhousie itself and
+                nearby Khajjiar.
+              </p>
+              <div className="split-facts">
+                <div className="split-fact">
+                  <strong>27</strong>
+                  <span>Rooms, 4 categories</span>
+                </div>
+                <div className="split-fact">
+                  <strong>~6,000ft</strong>
+                  <span>Above sea level</span>
+                </div>
+                <div className="split-fact">
+                  <strong>~7km</strong>
+                  <span>To Dalhousie Mall Road</span>
+                </div>
+              </div>
+            </div>
+            <div className="split-art">
+              <img className="photo" src="/images/balcony-view.webp" alt="View from a Luxe Vista balcony" loading="lazy" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="section section--night">
+        <div className="container">
+          <RidgeDivider tone="night" />
+          <div className="section-head" style={{ marginTop: "2.5rem" }}>
+            <p className="eyebrow">What to expect</p>
+            <h2>Real, verified, and on one calendar</h2>
+          </div>
+          <div className="amenity-grid">
+            <div className="amenity">
+              <h3>Verified rooms</h3>
+              <p>Every room is verified in person, and every photo shows the actual room — not a stock image.</p>
+            </div>
+            <div className="amenity">
+              <h3>One calendar</h3>
+              <p>Every booking sits on one calendar, so an open date is genuinely open.</p>
+            </div>
+            <div className="amenity">
+              <h3>Winter-ready</h3>
+              <p>Heated rooms, real mattresses, and hot water that actually stays hot through the hill winters.</p>
+            </div>
+            <div className="amenity">
+              <h3>A person, not a queue</h3>
+              <p>Room requests, dietary notes, and travel plans are handled directly by staff who know the property.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="section section--linen" style={{ textAlign: "center" }}>
+        <div className="container">
+          <h2 style={{ maxWidth: "28rem", margin: "0 auto 1.5rem" }}>See the rooms</h2>
+          <Link href="/rooms" className="btn btn--copper">
+            View rooms &amp; rates
+          </Link>
+        </div>
+      </section>
     </>
   );
 }
