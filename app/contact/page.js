@@ -50,7 +50,7 @@ export default function ContactPage({ searchParams }) {
                 <div className="contact-method">
                   <div>
                     <strong>Email</strong>
-                    <span>harvinder2414@gmail.com</span>
+                    <span>snowcresthotels@gmail.com</span>
                   </div>
                 </div>
               </div>
