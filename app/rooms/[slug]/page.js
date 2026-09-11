@@ -36,7 +36,7 @@ export default function RoomDetailPage({ params }) {
       <section className="section section--linen-soft">
         <div className="container">
           <div className="split">
-            <div>
+            <div className="split-media">
               <div className="split-art">
                 <RoomVisual room={room} tone="dusk" seed={room.slug.length + 5} />
               </div>

@@ -1,26 +1,25 @@
 /* ============================================================
    SNOW CREST — design tokens
-   A day-cycle rhythm runs down the page: sections alternate
-   between a warm "linen" daylight tone and a deep "night" tone,
-   the way a valley shifts from dawn to dusk over a single stay.
+   A warm, wood-and-firelight palette — cream and copper through
+   the day, deep espresso-brown (not navy) for contrast sections.
    ============================================================ */
 
 :root {
   /* base palette */
-  --night: #0d1b24;         /* deep alpine night */
-  --night-soft: #16303d;    /* dusk gradient partner */
-  --linen: #ece6d8;         /* warm snow-linen */
-  --linen-soft: #f6f2e9;    /* lighter linen, for raised panels */
-  --ink: #16232b;           /* body text on linen */
-  --ink-soft: #445159;      /* secondary text on linen */
-  --mist: #cfd9d6;          /* muted text on night */
-  --mist-soft: #8fa3a0;     /* dimmer text on night */
+  --night: #2b2018;         /* warm espresso brown, not navy */
+  --night-soft: #42301f;    /* lighter warm-brown gradient partner */
+  --linen: #f5ecda;         /* warm cream */
+  --linen-soft: #fbf6ea;    /* near-white cream, for raised panels */
+  --ink: #2b2018;           /* body text on linen — matches night for consistency */
+  --ink-soft: #5c4a38;      /* secondary warm-brown text */
+  --mist: #ecdfc7;          /* warm light text on dark sections */
+  --mist-soft: #cbb18a;     /* dimmer warm text on dark sections */
 
   /* accents */
-  --copper: #b8834a;
-  --copper-deep: #8f6236;
-  --spruce: #4c7a72;
-  --gold-line: #c7a467;
+  --copper: #c17f35;
+  --copper-deep: #96631f;
+  --spruce: #6b8256;
+  --gold-line: #dcae5c;
 
   /* type */
   --font-display: var(--font-fraunces), "Iowan Old Style", serif;
@@ -233,9 +232,9 @@ p {
   position: sticky;
   top: 0;
   z-index: 40;
-  background: rgba(13, 27, 36, 0.92);
+  background: rgba(251, 246, 234, 0.94);
   backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(199, 164, 103, 0.18);
+  border-bottom: 1px solid rgba(150, 99, 31, 0.18);
 }
 
 .nav .container {
@@ -251,7 +250,7 @@ p {
   line-height: 1.15;
   font-family: var(--font-display);
   font-size: 1.35rem;
-  color: #f4efe4;
+  color: var(--ink);
   text-decoration: none;
   letter-spacing: 0.01em;
 }
@@ -262,7 +261,7 @@ p {
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: var(--gold-line);
+  color: var(--copper-deep);
 }
 
 .nav-links {
@@ -272,7 +271,7 @@ p {
 }
 
 .nav-links a {
-  color: var(--mist);
+  color: var(--ink-soft);
   text-decoration: none;
   font-size: 0.95rem;
   position: relative;
@@ -286,12 +285,12 @@ p {
   bottom: 0;
   width: 0;
   height: 1px;
-  background: var(--gold-line);
+  background: var(--copper);
   transition: width 0.2s ease;
 }
 
 .nav-links a:hover {
-  color: #f4efe4;
+  color: var(--ink);
 }
 .nav-links a:hover::after {
   width: 100%;
@@ -306,8 +305,8 @@ p {
 .nav-toggle {
   display: inline-flex;
   background: none;
-  border: 1px solid rgba(244, 239, 228, 0.3);
-  color: #f4efe4;
+  border: 1px solid rgba(43, 32, 24, 0.25);
+  color: var(--ink);
   padding: 0.5rem 0.7rem;
   border-radius: 2px;
 }
@@ -317,15 +316,15 @@ p {
   flex-direction: column;
   gap: 0.25rem;
   padding: 0.5rem var(--gutter) 1.5rem;
-  background: var(--night);
-  border-bottom: 1px solid rgba(199, 164, 103, 0.18);
+  background: var(--linen-soft);
+  border-bottom: 1px solid rgba(150, 99, 31, 0.18);
 }
 
 .nav-mobile a {
-  color: var(--mist);
+  color: var(--ink-soft);
   text-decoration: none;
   padding: 0.7rem 0;
-  border-bottom: 1px solid rgba(244, 239, 228, 0.08);
+  border-bottom: 1px solid rgba(43, 32, 24, 0.1);
   font-size: 1.02rem;
 }
 
@@ -344,14 +343,14 @@ p {
 
 .hero {
   position: relative;
-  background: radial-gradient(ellipse at 20% -10%, #24404f 0%, var(--night) 55%, #081319 100%);
-  color: #f4efe4;
+  background: radial-gradient(ellipse at 20% -10%, #5a3f26 0%, var(--night) 55%, #1c130d 100%);
+  color: #faf3e6;
   overflow: hidden;
   padding-top: clamp(3.5rem, 8vw, 6rem);
 }
 
 .hero--photo {
-  background-image: linear-gradient(180deg, rgba(13, 27, 36, 0.55) 0%, rgba(13, 27, 36, 0.7) 55%, var(--night) 100%),
+  background-image: linear-gradient(180deg, rgba(43, 32, 24, 0.45) 0%, rgba(43, 32, 24, 0.62) 55%, var(--night) 100%),
     url("/images/hotel-exterior.webp");
   background-size: cover;
   background-position: center 30%;
@@ -514,6 +513,10 @@ p {
   align-items: center;
 }
 
+.split > * {
+  min-width: 0;
+}
+
 .split.split--reverse .split-art {
   order: -1;
 }
@@ -590,6 +593,10 @@ p {
   border-top: 1px solid rgba(22, 35, 43, 0.12);
 }
 
+.room-row > * {
+  min-width: 0;
+}
+
 .section--night .room-row {
   border-top-color: rgba(244, 239, 228, 0.14);
 }
@@ -643,6 +650,15 @@ p {
 .photo-strip .photo {
   aspect-ratio: 1;
   border-radius: 2px;
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+/* the media column in a room's split layout (image + thumbnail strip) —
+   min-width: 0 stops its content from forcing the grid track wider than
+   its fair share, which is what caused the overlap bug */
+.split-media {
+  min-width: 0;
 }
 
 .room-info .tagline {
@@ -751,47 +767,22 @@ p {
   color: var(--gold-line);
 }
 
-/* ============================================================
-   GALLERY
-   ============================================================ */
-
-.gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 0.9rem;
+/* light-section variant — same markup, warm-on-cream instead of cream-on-warm */
+.section--linen .amenity,
+.section--linen-soft .amenity {
+  border-left-color: var(--copper);
 }
-
-@media (min-width: 700px) {
-  .gallery-grid {
-    grid-template-columns: repeat(4, 1fr);
-  }
-  .gallery-grid > *:nth-child(4n + 1) {
-    grid-column: span 2;
-    grid-row: span 2;
-  }
+.section--linen .amenity h3,
+.section--linen-soft .amenity h3 {
+  color: var(--ink);
 }
-
-.gallery-tile {
-  position: relative;
-  aspect-ratio: 1;
-  border-radius: 2px;
-  overflow: hidden;
+.section--linen .amenity p,
+.section--linen-soft .amenity p {
+  color: var(--ink-soft);
 }
-
-.gallery-grid > *:nth-child(4n + 1) .gallery-tile {
-  aspect-ratio: auto;
-  height: 100%;
-}
-
-.gallery-caption {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  padding: 0.9rem 1rem;
-  font-size: 0.85rem;
-  color: #f4efe4;
-  background: linear-gradient(to top, rgba(13, 27, 36, 0.75), transparent);
+.section--linen .amenity .hours,
+.section--linen-soft .amenity .hours {
+  color: var(--copper-deep);
 }
 
 /* ============================================================

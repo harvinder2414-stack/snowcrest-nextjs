@@ -52,12 +52,12 @@ export default function HomePage() {
         >
           <path
             d="M0,260 L0,150 L90,110 L180,160 L280,90 L360,140 L470,70 L560,130 L660,60 L760,120 L870,80 L960,150 L1060,100 L1150,160 L1200,120 L1200,260 Z"
-            fill="#16303d"
+            fill="#42301f"
             opacity="0.75"
           />
           <path
             d="M0,260 L0,190 L140,150 L240,200 L340,140 L440,190 L560,130 L660,180 L780,140 L900,200 L1020,150 L1120,195 L1200,170 L1200,260 Z"
-            fill="#0d1b24"
+            fill="#2b2018"
           />
         </svg>
       </section>
@@ -144,10 +144,9 @@ export default function HomePage() {
       </section>
 
       {/* ---------- WHY CHOOSE SNOW CREST ---------- */}
-      <section className="section section--night">
+      <section className="section section--linen-soft">
         <div className="container">
-          <RidgeDivider tone="night" />
-          <div className="section-head" style={{ marginTop: "2.5rem" }}>
+          <div className="section-head">
             <p className="eyebrow">Why choose us</p>
             <h2>Chosen for the view first</h2>
             <p>A peaceful hillside location in Banikhet, roughly 7 km from Dalhousie Mall Road.</p>
@@ -173,7 +172,7 @@ export default function HomePage() {
           </div>
 
           <div style={{ textAlign: "center", marginTop: "3rem" }}>
-            <Link href="/luxe-vista" className="btn btn--outline-night">
+            <Link href="/luxe-vista" className="btn btn--outline-ink">
               Explore Luxe Vista
             </Link>
           </div>
@@ -181,9 +180,10 @@ export default function HomePage() {
       </section>
 
       {/* ---------- TESTIMONIALS ---------- */}
-      <section className="section section--night" style={{ paddingTop: 0 }}>
+      <section className="section section--night">
         <div className="container">
-          <div className="section-head">
+          <RidgeDivider tone="night" />
+          <div className="section-head" style={{ marginTop: "2.5rem" }}>
             <p className="eyebrow">Guests say</p>
             <h2 style={{ fontSize: "1.6rem" }}>Rated highly on Google &amp; Tripadvisor</h2>
           </div>
