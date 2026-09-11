@@ -5,6 +5,10 @@ import BookingWidget from "@/components/BookingWidget";
 import { rooms } from "@/lib/rooms";
 import { getAllPosts } from "@/lib/posts";
 
+export const metadata = {
+  alternates: { canonical: "/" },
+};
+
 export default function HomePage() {
   const featuredRooms = rooms.slice(0, 3);
   const posts = getAllPosts().slice(0, 3);
@@ -16,14 +20,15 @@ export default function HomePage() {
         <div className="container">
           <div className="hero-grid" style={{ gridTemplateColumns: "1fr", display: "grid" }}>
             <div>
-              <p className="hero-eyebrow">Banikhet, Dalhousie · Himachal Pradesh</p>
+              <p className="hero-eyebrow">Hotel in Banikhet, near Dalhousie · Himachal Pradesh</p>
               <h1>Stay somewhere worth remembering.</h1>
               <p className="hero-sub">
-                Luxe Vista by Snow Crest is a mountain-view hotel roughly
-                6,000 ft up, about 7 km from Dalhousie Mall Road. Every room
-                is verified in person, every photo shows the actual room,
-                and every booking sits on one calendar — so an open date is
-                genuinely open.
+                Luxe Vista by Snow Crest is a mountain view hotel in
+                Banikhet, about 7 km from Dalhousie Mall Road — close
+                enough for an easy day in town, far enough to stay quiet at
+                night. Every room is verified in person, every photo shows
+                the actual room, and every booking sits on one calendar —
+                so an open date is genuinely open.
               </p>
               <div className="hero-actions">
                 <Link href="/rooms" className="btn btn--copper">
@@ -68,13 +73,13 @@ export default function HomePage() {
           <div className="split">
             <div className="split-copy">
               <p className="eyebrow">Who we are</p>
-              <h2>A small hospitality group, focused on properties worth staying at</h2>
+              <h2>A mountain view hotel in Dalhousie, run by people who live here</h2>
               <p>
                 Snow Crest is a small hill-hospitality group. Luxe Vista is
-                its flagship property — a mountain-view hotel in Banikhet,
-                Dalhousie, offering thoughtfully designed rooms, scenic
-                surroundings and a comfortable base for exploring Dalhousie
-                and nearby Khajjiar.
+                its flagship property — a mountain view hotel in Banikhet,
+                near Dalhousie, Himachal Pradesh, offering thoughtfully
+                designed rooms, scenic surroundings and a comfortable base
+                for exploring Dalhousie and nearby Khajjiar.
               </p>
               <p>
                 Every room is verified in person, every photo shows the

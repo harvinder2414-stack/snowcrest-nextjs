@@ -10,8 +10,9 @@ export function generateMetadata({ params }) {
   const post = getPostBySlug(params.slug);
   if (!post) return {};
   return {
-    title: `${post.title} — Luxe Vista by Snow Crest`,
+    title: post.title,
     description: post.excerpt,
+    alternates: { canonical: `/blog/${post.slug}` },
   };
 }
 

@@ -2,8 +2,9 @@ import Link from "next/link";
 import { getAllPosts } from "@/lib/posts";
 
 export const metadata = {
-  title: "Journal — Luxe Vista by Snow Crest",
-  description: "Travel notes on Dalhousie, Khajjiar, and the surrounding hills from Luxe Vista by Snow Crest.",
+  title: "Dalhousie Travel Guide & Journal",
+  description: "A Dalhousie travel guide — places to visit in Dalhousie, day trips, how to reach Dalhousie, and the best time to visit, from Luxe Vista by Snow Crest.",
+  alternates: { canonical: "/blog" },
 };
 
 export default function BlogIndexPage() {
@@ -14,8 +15,8 @@ export default function BlogIndexPage() {
       <section className="page-hero">
         <div className="container">
           <p className="eyebrow">From the hills</p>
-          <h1>The journal</h1>
-          <p>Travel notes on Dalhousie, Khajjiar, and the surrounding hills — updated as we go.</p>
+          <h1>The journal — a Dalhousie travel guide</h1>
+          <p>Places to visit, day trips, and practical notes for planning a trip to Dalhousie and the surrounding hills — updated as we go.</p>
         </div>
       </section>
 

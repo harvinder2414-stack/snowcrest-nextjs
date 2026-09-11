@@ -2,8 +2,9 @@ import Link from "next/link";
 import RidgeDivider from "@/components/RidgeDivider";
 
 export const metadata = {
-  title: "About Us — Luxe Vista by Snow Crest",
-  description: "About Snow Crest and Luxe Vista, a mountain-view hotel in Banikhet, Dalhousie, Himachal Pradesh.",
+  title: "About Us — Hotel in Dalhousie, Himachal Pradesh",
+  description: "About Snow Crest and Luxe Vista, a hotel in Dalhousie, Himachal Pradesh, located in Banikhet.",
+  alternates: { canonical: "/about" },
 };
 
 export default function AboutPage() {
@@ -12,10 +13,10 @@ export default function AboutPage() {
       <section className="page-hero">
         <div className="container">
           <p className="eyebrow">About us</p>
-          <h1>Hospitality, built around the view</h1>
+          <h1>A hotel in Dalhousie, Himachal Pradesh, built around the view</h1>
           <p>
             Snow Crest is a small hill-hospitality group. Luxe Vista, in
-            Banikhet, Dalhousie, is its flagship property.
+            Banikhet, near Dalhousie, is its flagship property.
           </p>
         </div>
       </section>

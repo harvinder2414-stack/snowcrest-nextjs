@@ -3,8 +3,9 @@ import RoomVisual from "@/components/RoomVisual";
 import { rooms } from "@/lib/rooms";
 
 export const metadata = {
-  title: "Rooms & Rates — Luxe Vista by Snow Crest",
-  description: "27 rooms across four categories at Luxe Vista by Snow Crest, Banikhet, Dalhousie — starting from ₹2,300 a night.",
+  title: "Hotel Rooms in Dalhousie | Mountain View Rooms",
+  description: "Mountain view rooms in Dalhousie at Luxe Vista by Snow Crest, Banikhet — 27 hotel rooms across four categories, starting from ₹2,300 a night.",
+  alternates: { canonical: "/rooms" },
 };
 
 export default function RoomsPage() {
@@ -13,11 +14,12 @@ export default function RoomsPage() {
       <section className="page-hero">
         <div className="container">
           <p className="eyebrow">Stay</p>
-          <h1>Rooms &amp; rates</h1>
+          <h1>Hotel rooms in Dalhousie, with the mountains where you&apos;d want them</h1>
           <p>
-            27 rooms across four categories, starting from ₹2,300 a night.
-            Every room is verified in person and every photo shows the
-            actual room.
+            27 mountain view rooms across four categories at our hotel in
+            Banikhet, near Dalhousie, starting from ₹2,300 a night. Every
+            room is verified in person and every photo shows the actual
+            room.
           </p>
         </div>
       </section>

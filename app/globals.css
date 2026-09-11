@@ -484,6 +484,14 @@ p {
   color: rgba(244, 239, 228, 0.45);
 }
 
+/* dropdown popups render with the OS's own light background regardless of
+   the select's styling — force dark, readable text/background on the
+   options themselves so they're never invisible against that popup */
+.field select option {
+  color: var(--ink);
+  background: #fff;
+}
+
 .field-light input,
 .field-light select,
 .field-light textarea {
@@ -989,6 +997,12 @@ p {
   color: var(--mist-soft);
   text-decoration: none;
   font-size: 0.95rem;
+}
+
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .footer a:hover {

@@ -11,8 +11,9 @@ export function generateMetadata({ params }) {
   const room = getRoomBySlug(params.slug);
   if (!room) return {};
   return {
-    title: `${room.name} — Luxe Vista by Snow Crest`,
+    title: room.name,
     description: room.blurb,
+    alternates: { canonical: `/rooms/${room.slug}` },
   };
 }
 

@@ -1,8 +1,9 @@
 import Link from "next/link";
 
 export const metadata = {
-  title: "Offers — Luxe Vista by Snow Crest",
-  description: "Current offers and seasonal rates at Luxe Vista by Snow Crest, Banikhet, Dalhousie.",
+  title: "Dalhousie Hotel Deals & Offers",
+  description: "Current Dalhousie hotel deals and hotel booking offers at Luxe Vista by Snow Crest, Banikhet — message us on WhatsApp for the best available rate.",
+  alternates: { canonical: "/offers" },
 };
 
 export default function OffersPage() {
@@ -11,11 +12,12 @@ export default function OffersPage() {
       <section className="page-hero">
         <div className="container">
           <p className="eyebrow">Offers</p>
-          <h1>Current offers</h1>
+          <h1>Dalhousie hotel deals &amp; current offers</h1>
           <p>
-            Seasonal rates and offers change through the year — message us
-            on WhatsApp with your dates and we&apos;ll share whatever&apos;s
-            currently running, along with the best available rate.
+            Seasonal rates and hotel booking offers change through the
+            year — message us on WhatsApp with your dates and we&apos;ll
+            share whatever&apos;s currently running, along with the best
+            available rate for your stay in Dalhousie.
           </p>
         </div>
       </section>
@@ -27,7 +29,8 @@ export default function OffersPage() {
           </h2>
           <p style={{ color: "var(--ink-soft)", maxWidth: "28rem", margin: "0 auto 2rem" }}>
             One calendar, one price — no surprise charge at checkout or at
-            the front desk.
+            the front desk. The simplest way to book a hotel in Dalhousie:
+            message us your dates and get a direct answer.
           </p>
           <Link href="/contact" className="btn btn--copper">
             Message us on WhatsApp

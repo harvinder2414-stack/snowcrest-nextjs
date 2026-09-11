@@ -1,8 +1,9 @@
 import ContactForm from "@/components/ContactForm";
 
 export const metadata = {
-  title: "Contact & Booking — Luxe Vista by Snow Crest",
-  description: "Check availability and send a booking request to Luxe Vista by Snow Crest.",
+  title: "Dalhousie Hotel Booking",
+  description: "Book your hotel in Dalhousie directly — check availability and send a booking request to Luxe Vista by Snow Crest, Banikhet.",
+  alternates: { canonical: "/contact" },
 };
 
 export default function ContactPage({ searchParams }) {
@@ -11,7 +12,7 @@ export default function ContactPage({ searchParams }) {
       <section className="page-hero">
         <div className="container">
           <p className="eyebrow">Plan your stay</p>
-          <h1>Check availability</h1>
+          <h1>Dalhousie hotel booking, direct and simple</h1>
           <p>
             Send us your dates and we&apos;ll confirm by WhatsApp, usually
             the same day.
@@ -50,7 +51,7 @@ export default function ContactPage({ searchParams }) {
                 <div className="contact-method">
                   <div>
                     <strong>Email</strong>
-                    <span>snowcresthotels@gmail.com</span>
+                    <span>harvinder2414@gmail.com</span>
                   </div>
                 </div>
               </div>

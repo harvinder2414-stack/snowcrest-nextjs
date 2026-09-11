@@ -37,7 +37,21 @@ export default function Footer() {
               <li>Himachal Pradesh, ~6,000 ft</li>
               <li>+91 93171 90212</li>
               <li>harvinder2414@gmail.com</li>
-              <li><a href="https://www.instagram.com/hotelsnowcrest" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+              <li>
+                <a
+                  href="https://www.instagram.com/hotelsnowcrest"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="social-link"
+                >
+                  <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+                    <rect x="2.5" y="2.5" width="19" height="19" rx="5" fill="none" stroke="currentColor" strokeWidth="1.8" />
+                    <circle cx="12" cy="12" r="4.6" fill="none" stroke="currentColor" strokeWidth="1.8" />
+                    <circle cx="17.4" cy="6.6" r="1.15" fill="currentColor" />
+                  </svg>
+                  Instagram
+                </a>
+              </li>
             </ul>
           </div>
         </div>

@@ -18,15 +18,98 @@ const manrope = Manrope({
   display: "swap",
 });
 
+// TODO: once this site is live on its final domain, update this to match —
+// it's what search engines and social platforms resolve every relative
+// URL and OG image against. Currently pointed at the property's existing
+// domain; change it the day you cut over.
+const SITE_URL = "https://www.snowcresthotels.com";
+
 export const metadata = {
-  title: "Luxe Vista by Snow Crest — Banikhet, Dalhousie",
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: "Luxe Vista by Snow Crest | Mountain View Hotel in Dalhousie, Banikhet",
+    template: "%s | Luxe Vista by Snow Crest",
+  },
   description:
-    "A mountain-view hotel in Banikhet, Dalhousie, Himachal Pradesh. 27 rooms across four categories, starting from ₹2,300 a night.",
+    "A mountain view hotel in Banikhet, near Dalhousie, Himachal Pradesh. 27 rooms across four categories, starting from ₹2,300 a night — book directly on WhatsApp.",
+  robots: {
+    index: true,
+    follow: true,
+  },
+  openGraph: {
+    siteName: "Luxe Vista by Snow Crest",
+    type: "website",
+    locale: "en_IN",
+    url: SITE_URL,
+    title: "Luxe Vista by Snow Crest | Mountain View Hotel in Dalhousie, Banikhet",
+    description:
+      "A mountain view hotel in Banikhet, near Dalhousie, Himachal Pradesh. 27 rooms across four categories, starting from ₹2,300 a night.",
+    images: [{ url: "/images/hotel-exterior.webp", width: 1360, height: 908, alt: "Luxe Vista by Snow Crest, a hotel in Banikhet near Dalhousie" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Luxe Vista by Snow Crest | Mountain View Hotel in Dalhousie, Banikhet",
+    description:
+      "A mountain view hotel in Banikhet, near Dalhousie, Himachal Pradesh. 27 rooms across four categories, starting from ₹2,300 a night.",
+    images: ["/images/hotel-exterior.webp"],
+  },
+};
+
+// Structured data (schema.org Hotel) — tells search engines this is a real,
+// bookable hotel at a specific address, which is what supports local-search
+// results ("hotel in Dalhousie", "hotel in Banikhet") and a rich map/knowledge
+// panel listing rather than just a blue link.
+//
+// Deliberately NOT included: aggregateRating / starRating. Google's
+// structured-data policy requires review markup to be genuine and
+// independently verifiable — inventing a number here risks a manual action
+// against the whole site. Once you have your actual Google Business Profile
+// rating, add it back with a real reviewCount and source.
+//
+// TODO: `geo` below uses Banikhet village's published coordinates (a
+// reasonable locality-level signal) — swap in the property's exact pin
+// from Google Business Profile / Google Maps once you have it, for a more
+// precise map listing.
+const hotelSchema = {
+  "@context": "https://schema.org",
+  "@type": "Hotel",
+  name: "Luxe Vista by Snow Crest",
+  description:
+    "A mountain view hotel in Banikhet, near Dalhousie, Himachal Pradesh, with 27 rooms across four categories.",
+  url: SITE_URL,
+  telephone: "+91-93171-90212",
+  priceRange: "₹2,300+",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "Banikhet",
+    addressLocality: "Dalhousie",
+    addressRegion: "Himachal Pradesh",
+    postalCode: "176303",
+    addressCountry: "IN",
+  },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: 32.5456,
+    longitude: 75.9437,
+  },
+  amenityFeature: [
+    { "@type": "LocationFeatureSpecification", name: "Mountain-facing rooms" },
+    { "@type": "LocationFeatureSpecification", name: "Private balconies (select rooms)" },
+    { "@type": "LocationFeatureSpecification", name: "In-room heating" },
+    { "@type": "LocationFeatureSpecification", name: "Marble bathrooms" },
+  ],
+  sameAs: ["https://www.instagram.com/hotelsnowcrest"],
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${fraunces.variable} ${manrope.variable}`}>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(hotelSchema) }}
+        />
+      </head>
       <body>
         <Navbar />
         <main>{children}</main>
