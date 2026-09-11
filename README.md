@@ -90,7 +90,7 @@ then sends the request via:
   to +91 70185 12267. Update `HOTEL_WHATSAPP` at the top of
   `components/ContactForm.jsx` if this number ever changes (country code,
   digits only, no `+` or spaces).
-- **Email** — opens a `mailto:` link addressed to `harvinder2414@gmail.com`
+- **Email** — opens a `mailto:` link addressed to `snowcresthotels@gmail.com`
   (the `HOTEL_EMAIL` constant in the same file).
 - **API** — also POSTs to `/api/booking`, which currently just logs to the
   Vercel function logs. To receive these as real emails automatically, sign

@@ -60,11 +60,11 @@ export const metadata = {
 // results ("hotel in Dalhousie", "hotel in Banikhet") and a rich map/knowledge
 // panel listing rather than just a blue link.
 //
-// Deliberately NOT included: aggregateRating / starRating. Google's
-// structured-data policy requires review markup to be genuine and
-// independently verifiable — inventing a number here risks a manual action
-// against the whole site. Once you have your actual Google Business Profile
-// rating, add it back with a real reviewCount and source.
+// aggregateRating below is sourced from the property's own Google Business
+// Profile (4.5, 93 reviews, confirmed by the owner) — Google's structured
+// data policy requires this to be genuine and verifiable, so update these
+// two numbers periodically as new reviews come in; don't let them go stale
+// for too long or drift from what Google Maps actually shows.
 //
 // TODO: `geo` below uses Banikhet village's published coordinates (a
 // reasonable locality-level signal) — swap in the property's exact pin
@@ -91,6 +91,12 @@ const hotelSchema = {
     "@type": "GeoCoordinates",
     latitude: 32.5456,
     longitude: 75.9437,
+  },
+  aggregateRating: {
+    "@type": "AggregateRating",
+    ratingValue: "4.5",
+    reviewCount: "93",
+    bestRating: "5",
   },
   amenityFeature: [
     { "@type": "LocationFeatureSpecification", name: "Mountain-facing rooms" },

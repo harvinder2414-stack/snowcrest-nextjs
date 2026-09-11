@@ -190,7 +190,7 @@ export default function HomePage() {
           <RidgeDivider tone="night" />
           <div className="section-head" style={{ marginTop: "2.5rem" }}>
             <p className="eyebrow">Guests say</p>
-            <h2 style={{ fontSize: "1.6rem" }}>Rated highly on Google &amp; Tripadvisor</h2>
+            <h2 style={{ fontSize: "1.6rem" }}>Rated 4.5★ on Google (93 reviews)</h2>
           </div>
           <div className="testimonial-row">
             <div className="testimonial">
@@ -205,7 +205,7 @@ export default function HomePage() {
                 &ldquo;Staff were courteous and helpful, and the location
                 was genuinely peaceful.&rdquo;
               </blockquote>
-              <cite>— Guest review, Tripadvisor</cite>
+              <cite>— Guest review, Google</cite>
             </div>
             <div className="testimonial">
               <blockquote>

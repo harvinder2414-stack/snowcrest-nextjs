@@ -36,7 +36,7 @@ export default function Footer() {
               <li>Banikhet, Dalhousie</li>
               <li>Himachal Pradesh, ~6,000 ft</li>
               <li>+91 93171 90212</li>
-              <li>harvinder2414@gmail.com</li>
+              <li>snowcresthotels@gmail.com</li>
               <li>
                 <a
                   href="https://www.instagram.com/hotelsnowcrest"

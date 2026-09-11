@@ -5,7 +5,7 @@ import { rooms } from "@/lib/rooms";
 
 // Real WhatsApp number for Luxe Vista by Snow Crest (country code 91, no + or spaces).
 const HOTEL_WHATSAPP = "917018512267";
-const HOTEL_EMAIL = "harvinder2414@gmail.com";
+const HOTEL_EMAIL = "snowcresthotels@gmail.com";
 
 export default function ContactForm({ initialValues = {} }) {
   const [form, setForm] = useState({

@@ -24,7 +24,7 @@ export async function POST(request) {
     },
     body: JSON.stringify({
       from: "Luxe Vista by Snow Crest <bookings@luxevistahotels.com>",
-      to: "harvinder2414@gmail.com",
+      to: "snowcresthotels@gmail.com",
       subject: `Booking request from ${data.name}`,
       text: JSON.stringify(data, null, 2),
     }),
