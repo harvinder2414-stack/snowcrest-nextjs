@@ -18,7 +18,7 @@ export default function HomePage() {
       {/* ---------- HERO ---------- */}
       <section className="hero hero--photo">
         <div className="container">
-          <div className="hero-grid" style={{ gridTemplateColumns: "1fr", display: "grid" }}>
+          <div className="hero-grid">
             <div>
               <p className="hero-eyebrow">Hotel in Banikhet, near Dalhousie · Himachal Pradesh</p>
               <h1>Stay somewhere worth remembering.</h1>
@@ -39,10 +39,8 @@ export default function HomePage() {
                 </Link>
               </div>
             </div>
-          </div>
 
-          <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: "2rem", position: "relative", zIndex: 3 }}>
-            <div style={{ maxWidth: "26rem" }}>
+            <div className="hero-booking">
               <BookingWidget />
             </div>
           </div>
