@@ -54,7 +54,7 @@ export default function DuplexArt({ className = "" }) {
 
       {/* --- upper level: loft with railing --- */}
       <rect x="0" y="40" width={w} height="90" fill="url(#duplex-wood-panel)" opacity="0.6" />
-      <line x1="30" y1="128" x2={w - 30} y2="128" stroke="#c7a467" strokeWidth="3" />
+      <line x1="30" y1="128" x2={w - 30} y2="128" stroke="#dcae5c" strokeWidth="3" />
       {Array.from({ length: 16 }).map((_, i) => (
         <line
           key={i}
@@ -62,7 +62,7 @@ export default function DuplexArt({ className = "" }) {
           y1="90"
           x2={40 + i * 36}
           y2="128"
-          stroke="#c7a467"
+          stroke="#dcae5c"
           strokeWidth="2.5"
           opacity="0.8"
         />
@@ -82,10 +82,10 @@ export default function DuplexArt({ className = "" }) {
 
       {/* --- window with a small mountain view, right side --- */}
       <rect x="460" y="170" width="140" height="150" rx="4" fill="#1b3a4b" />
-      <rect x="460" y="170" width="140" height="150" rx="4" fill="none" stroke="#c7a467" strokeWidth="3" />
+      <rect x="460" y="170" width="140" height="150" rx="4" fill="none" stroke="#dcae5c" strokeWidth="3" />
       <polygon points="460,270 505,225 540,255 575,210 600,240 600,320 460,320" fill="#274f49" opacity="0.85" />
       <circle cx="560" cy="205" r="16" fill="#e7c88a" opacity="0.85" />
-      <line x1="530" y1="170" x2="530" y2="320" stroke="#c7a467" strokeWidth="2" opacity="0.6" />
+      <line x1="530" y1="170" x2="530" y2="320" stroke="#dcae5c" strokeWidth="2" opacity="0.6" />
 
       {/* --- lower level: bed --- */}
       <rect x="60" y="300" width="330" height="110" rx="6" fill="#e8e2d4" opacity="0.92" />

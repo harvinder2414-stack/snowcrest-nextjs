@@ -4,11 +4,11 @@
 // call with a plain <img src="/images/whatever.jpg" alt="..." />.
 
 const PALETTES = {
-  dusk: { sky: ["#2c4a58", "#0d1b24"], far: "#1a3340", near: "#0d1b24", sun: "#e7c88a" },
+  dusk: { sky: ["#4a3524", "#2b2018"], far: "#3a2818", near: "#2b2018", sun: "#e7c88a" },
   dawn: { sky: ["#e9dfc6", "#cfd8c3"], far: "#a9b79f", near: "#7c8f7a", sun: "#e7c88a" },
-  copper: { sky: ["#3a2c22", "#0d1b24"], far: "#5a4330", near: "#0d1b24", sun: "#c7a467" },
-  spruce: { sky: ["#1c3b3a", "#0d1b24"], far: "#274f49", near: "#12262a", sun: "#e7c88a" },
-  linen: { sky: ["#f6f2e9", "#e3dbc7"], far: "#c9bfa0", near: "#9aa48f", sun: "#b8834a" },
+  copper: { sky: ["#3a2c22", "#2b2018"], far: "#5a4330", near: "#2b2018", sun: "#dcae5c" },
+  spruce: { sky: ["#243b2e", "#2b2018"], far: "#33513e", near: "#1a2a20", sun: "#e7c88a" },
+  linen: { sky: ["#f6f2e9", "#e3dbc7"], far: "#c9bfa0", near: "#9aa48f", sun: "#c17f35" },
 };
 
 function ridgePath(seed, amplitude, baseline, width, height) {

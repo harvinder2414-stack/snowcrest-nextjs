@@ -2,7 +2,7 @@
 // used between sections instead of a generic hairline rule.
 
 export default function RidgeDivider({ tone = "night" }) {
-  const stroke = tone === "night" ? "#c7a467" : "#b8834a";
+  const stroke = tone === "night" ? "#dcae5c" : "#c17f35";
   return (
     <svg
       className="ridge-divider"
