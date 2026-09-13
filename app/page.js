@@ -1,7 +1,6 @@
 import Link from "next/link";
 import RoomVisual from "@/components/RoomVisual";
 import RidgeDivider from "@/components/RidgeDivider";
-import BookingWidget from "@/components/BookingWidget";
 import { rooms } from "@/lib/rooms";
 import { getAllPosts } from "@/lib/posts";
 
@@ -33,20 +32,11 @@ export default function HomePage() {
                 <li>27 rooms</li>
               </ul>
               <div className="hero-actions">
-                <Link href="#quick-book" className="btn btn--copper">
+                <a href="#book-now" className="btn btn--copper">
                   Check availability
-                </Link>
+                </a>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ---------- QUICK BOOK BAR ---------- */}
-      <section id="quick-book" className="section section--linen-soft quick-book">
-        <div className="container">
-          <div className="quick-book-inner">
-            <BookingWidget />
           </div>
         </div>
       </section>
