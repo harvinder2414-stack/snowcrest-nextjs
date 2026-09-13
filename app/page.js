@@ -6,6 +6,7 @@ import { rooms } from "@/lib/rooms";
 import { getAllPosts } from "@/lib/posts";
 
 export const metadata = {
+  title: { absolute: "Hotel in Dalhousie | Mountain View Hotel in Banikhet | Luxe Vista" },
   alternates: { canonical: "/" },
 };
 
@@ -20,19 +21,27 @@ export default function HomePage() {
         <div className="container">
           <div className="hero-grid">
             <div>
-              <p className="hero-eyebrow">Hotel in Banikhet, near Dalhousie · Himachal Pradesh</p>
-              <h1>Stay somewhere worth remembering.</h1>
+              <p className="hero-eyebrow">Stay somewhere worth remembering</p>
+              <h1>Mountain View Hotel in Dalhousie, Himachal Pradesh</h1>
               <p className="hero-sub">
                 Luxe Vista by Snow Crest is a mountain view hotel in
-                Banikhet, about 7 km from Dalhousie Mall Road — close
-                enough for an easy day in town, far enough to stay quiet at
-                night. Every room is verified in person, every photo shows
-                the actual room, and every booking sits on one calendar —
-                so an open date is genuinely open.
+                Banikhet, around 7 km from Dalhousie Mall Road, with
+                spacious rooms, mountain views and direct booking. Every
+                room is verified in person, every photo shows the actual
+                room, and every booking sits on one calendar — so an open
+                date is genuinely open.
               </p>
+              <ul className="hero-highlights">
+                <li>27 rooms</li>
+                <li>Mountain views</li>
+                <li>Private balconies</li>
+                <li>Winter heating</li>
+                <li>Free parking</li>
+                <li>Direct booking</li>
+              </ul>
               <div className="hero-actions">
                 <Link href="/rooms" className="btn btn--copper">
-                  View rooms &amp; rates
+                  Check availability
                 </Link>
                 <Link href="/luxe-vista" className="btn btn--outline-night">
                   About Luxe Vista
@@ -170,7 +179,7 @@ export default function HomePage() {
           <RidgeDivider tone="night" />
           <div className="section-head" style={{ marginTop: "2.5rem" }}>
             <p className="eyebrow">Guests say</p>
-            <h2 style={{ fontSize: "1.6rem" }}>Rated 4.5★ on Google (93 reviews)</h2>
+            <h2 style={{ fontSize: "1.6rem" }}>4.5★ on Google (93 reviews) · 4.9/5 on Tripadvisor (20 reviews)</h2>
           </div>
           <div className="testimonial-row">
             <div className="testimonial">

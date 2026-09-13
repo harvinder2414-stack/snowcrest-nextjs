@@ -103,6 +103,7 @@ const hotelSchema = {
     { "@type": "LocationFeatureSpecification", name: "Private balconies (select rooms)" },
     { "@type": "LocationFeatureSpecification", name: "In-room heating" },
     { "@type": "LocationFeatureSpecification", name: "Marble bathrooms" },
+    { "@type": "LocationFeatureSpecification", name: "Free parking" },
   ],
   sameAs: ["https://www.instagram.com/hotelsnowcrest"],
 };

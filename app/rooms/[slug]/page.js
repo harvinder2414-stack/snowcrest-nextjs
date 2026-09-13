@@ -11,7 +11,7 @@ export function generateMetadata({ params }) {
   const room = getRoomBySlug(params.slug);
   if (!room) return {};
   return {
-    title: room.name,
+    title: room.h1,
     description: room.blurb,
     alternates: { canonical: `/rooms/${room.slug}` },
   };
@@ -29,7 +29,7 @@ export default function RoomDetailPage({ params }) {
       <section className="page-hero">
         <div className="container">
           <p className="eyebrow">{room.tagline}</p>
-          <h1>{room.name}</h1>
+          <h1>{room.h1}</h1>
           <p>{room.blurb}</p>
         </div>
       </section>

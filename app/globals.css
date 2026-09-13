@@ -361,7 +361,7 @@ p {
   background-image: linear-gradient(180deg, rgba(43, 32, 24, 0.18) 0%, rgba(43, 32, 24, 0.32) 60%, rgba(43, 32, 24, 0.7) 100%),
     url("/images/hotel-exterior.webp");
   background-size: cover;
-  background-position: center 30%;
+  background-position: center 38%;
 }
 
 .hero-grid {
@@ -389,6 +389,7 @@ p {
   }
   .hero-booking {
     justify-self: end;
+    margin-top: 2.5rem;
   }
 }
 
@@ -401,8 +402,8 @@ p {
 }
 
 .hero h1 {
-  font-size: clamp(2.6rem, 6.2vw, 5.1rem);
-  max-width: 16ch;
+  font-size: clamp(1.9rem, 3.6vw, 3.1rem);
+  max-width: 20ch;
   color: #faf6ec;
 }
 
@@ -411,6 +412,33 @@ p {
   max-width: 34rem;
   font-size: 1.15rem;
   color: var(--mist);
+}
+
+.hero-highlights {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 0;
+  list-style: none;
+  margin: 1.5rem 0 0;
+  padding: 0;
+  font-size: 0.92rem;
+  color: var(--mist);
+}
+
+.hero-highlights li {
+  position: relative;
+  padding: 0 0.85rem;
+}
+
+.hero-highlights li:first-child {
+  padding-left: 0;
+}
+
+.hero-highlights li + li::before {
+  content: "•";
+  position: absolute;
+  left: -0.05rem;
+  color: var(--gold-line);
 }
 
 .hero-actions {
