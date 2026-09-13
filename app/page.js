@@ -6,7 +6,7 @@ import { rooms } from "@/lib/rooms";
 import { getAllPosts } from "@/lib/posts";
 
 export const metadata = {
-  title: "Mountain View Hotel in Dalhousie",
+  title: { absolute: "Hotel in Dalhousie | Mountain View Hotel in Banikhet | Luxe Vista" },
   alternates: { canonical: "/" },
 };
 
@@ -21,11 +21,11 @@ export default function HomePage() {
         <div className="container">
           <div className="hero-grid hero-grid--single">
             <div>
-              <p className="hero-eyebrow">Hotel in Banikhet, near Dalhousie · Himachal Pradesh</p>
-              <h1>Stay somewhere worth remembering.</h1>
+              <p className="hero-eyebrow">Luxe Vista by Snow Crest</p>
+              <h1>Mountain View Hotel in Dalhousie, Himachal Pradesh</h1>
               <p className="hero-sub">
-                Luxe Vista by Snow Crest is a mountain view hotel in
-                Banikhet, about 7 km from Dalhousie Mall Road.
+                A peaceful mountain view stay in Banikhet, about 7 km from
+                Dalhousie Mall Road.
               </p>
               <ul className="hero-highlights">
                 <li>Mountain views</li>
@@ -33,7 +33,7 @@ export default function HomePage() {
                 <li>27 rooms</li>
               </ul>
               <div className="hero-actions">
-                <Link href="/rooms" className="btn btn--copper">
+                <Link href="#quick-book" className="btn btn--copper">
                   Check availability
                 </Link>
               </div>
@@ -43,7 +43,7 @@ export default function HomePage() {
       </section>
 
       {/* ---------- QUICK BOOK BAR ---------- */}
-      <section className="section section--linen-soft quick-book">
+      <section id="quick-book" className="section section--linen-soft quick-book">
         <div className="container">
           <div className="quick-book-inner">
             <BookingWidget />
