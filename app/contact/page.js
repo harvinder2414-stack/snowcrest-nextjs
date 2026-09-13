@@ -60,6 +60,41 @@ export default function ContactPage({ searchParams }) {
         </div>
       </section>
 
+      <section className="section section--linen-soft" style={{ paddingTop: 0 }}>
+        <div className="container">
+          <div className="section-head">
+            <p className="eyebrow">Find us</p>
+            <h2 style={{ fontSize: "1.6rem" }}>Banikhet, near Dalhousie</h2>
+          </div>
+          <div className="map-embed">
+            <iframe
+              src="https://www.google.com/maps?q=Luxe%20Vista%20by%20Snow%20Crest%2C%20Banikhet%2C%20Dalhousie%2C%20Himachal%20Pradesh%20176303&z=15&output=embed"
+              title="Luxe Vista by Snow Crest on Google Maps"
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            />
+          </div>
+          <div className="map-links">
+            <a
+              href="https://www.google.com/maps/dir/?api=1&destination=Luxe%20Vista%20by%20Snow%20Crest%2C%20Banikhet%2C%20Dalhousie%2C%20Himachal%20Pradesh%20176303"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn--outline-ink"
+            >
+              Get Directions
+            </a>
+            <a
+              href="https://www.google.com/maps/search/?api=1&query=Luxe%20Vista%20by%20Snow%20Crest%20Banikhet%20Dalhousie"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-link"
+            >
+              View on Google Maps →
+            </a>
+          </div>
+        </div>
+      </section>
+
       <section className="section section--night">
         <div className="container">
           <div className="section-head">
