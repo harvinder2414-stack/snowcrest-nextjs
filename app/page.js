@@ -21,30 +21,20 @@ export default function HomePage() {
         <div className="container">
           <div className="hero-grid">
             <div>
-              <p className="hero-eyebrow">Stay somewhere worth remembering</p>
+              <p className="hero-eyebrow">Luxe Vista by Snow Crest</p>
               <h1>Mountain View Hotel in Dalhousie, Himachal Pradesh</h1>
               <p className="hero-sub">
-                Luxe Vista by Snow Crest is a mountain view hotel in
-                Banikhet, around 7 km from Dalhousie Mall Road, with
-                spacious rooms, mountain views and direct booking. Every
-                room is verified in person, every photo shows the actual
-                room, and every booking sits on one calendar — so an open
-                date is genuinely open.
+                A peaceful mountain view stay in Banikhet, about 7 km from
+                Dalhousie Mall Road.
               </p>
               <ul className="hero-highlights">
-                <li>27 rooms</li>
                 <li>Mountain views</li>
                 <li>Private balconies</li>
-                <li>Winter heating</li>
-                <li>Free parking</li>
-                <li>Direct booking</li>
+                <li>27 rooms</li>
               </ul>
               <div className="hero-actions">
                 <Link href="/rooms" className="btn btn--copper">
                   Check availability
-                </Link>
-                <Link href="/luxe-vista" className="btn btn--outline-night">
-                  About Luxe Vista
                 </Link>
               </div>
             </div>
@@ -89,6 +79,11 @@ export default function HomePage() {
                   <strong>~7km</strong>
                   <span>From Dalhousie Mall Road</span>
                 </div>
+              </div>
+              <div className="hero-actions" style={{ marginTop: "1.75rem" }}>
+                <Link href="/luxe-vista" className="text-link">
+                  About Luxe Vista →
+                </Link>
               </div>
             </div>
             <div className="split-art">
