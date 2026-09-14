@@ -389,31 +389,90 @@ p {
   }
 }
 
-/* ---------- quick book bar ----------
-   The compact booking section that sits directly below the hero photo —
-   inline, reliable, no client-side state or CSS-target tricks needed. */
-.quick-book {
-  padding-top: clamp(1.75rem, 4vw, 2.75rem);
-  padding-bottom: clamp(1.75rem, 4vw, 2.75rem);
+/* ---------- hero-docked booking bar ----------
+   A full-width bar anchored to the bottom edge of the hero photo, in the
+   style of professional hotel booking engines: dates, guests, price, and
+   one CTA in a single row. */
+.hero--bookbar {
+  padding-bottom: 0;
 }
 
-.quick-book-inner {
-  display: flex;
-  justify-content: center;
+.hero-content {
+  padding-bottom: clamp(6.5rem, 16vw, 8.5rem);
 }
 
-.quick-book-inner .booking-widget {
-  width: 100%;
-  max-width: 34rem;
+.hero-bookbar {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 4;
+  background: rgba(43, 32, 24, 0.92);
+  backdrop-filter: blur(6px);
+  border-top: 1px solid rgba(220, 174, 92, 0.35);
+  padding: 1.1rem clamp(1.25rem, 4vw, 3.5rem);
 }
 
-.quick-book-inner .booking-row {
-  grid-template-columns: 1fr 1fr;
+.hero-bookbar-inner {
+  max-width: var(--content-max);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.85rem;
+  align-items: end;
 }
 
 @media (min-width: 640px) {
-  .quick-book-inner .booking-widget {
-    padding: 1.5rem 2rem;
+  .hero-bookbar-inner {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 960px) {
+  .hero-bookbar-inner {
+    grid-template-columns: repeat(3, minmax(0, 10rem)) auto auto;
+    gap: 1.25rem;
+  }
+}
+
+.field--bar {
+  margin-bottom: 0;
+}
+
+.field--bar label {
+  font-size: 0.68rem;
+}
+
+.field--bar input,
+.field--bar select {
+  padding: 0.55rem 0.65rem;
+  font-size: 0.92rem;
+}
+
+.hero-bookbar-price {
+  display: flex;
+  align-items: baseline;
+  gap: 0.3rem;
+  font-size: 0.85rem;
+  color: var(--mist);
+  white-space: nowrap;
+  padding-bottom: 0.5rem;
+}
+
+.hero-bookbar-price strong {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  color: #f4efe4;
+}
+
+.hero-bookbar-submit {
+  white-space: nowrap;
+  width: 100%;
+}
+
+@media (min-width: 960px) {
+  .hero-bookbar-submit {
+    width: auto;
   }
 }
 

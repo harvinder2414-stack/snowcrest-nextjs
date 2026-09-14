@@ -2,7 +2,7 @@ import Link from "next/link";
 import RoomVisual from "@/components/RoomVisual";
 import RidgeDivider from "@/components/RidgeDivider";
 import AmenityIcon from "@/components/AmenityIcon";
-import BookingWidget from "@/components/BookingWidget";
+import HeroBookBar from "@/components/HeroBookBar";
 import { rooms } from "@/lib/rooms";
 import { getAllPosts } from "@/lib/posts";
 
@@ -18,8 +18,8 @@ export default function HomePage() {
   return (
     <>
       {/* ---------- HERO ---------- */}
-      <section className="hero hero--photo">
-        <div className="container">
+      <section className="hero hero--photo hero--bookbar">
+        <div className="container hero-content">
           <div className="hero-grid hero-grid--single">
             <div>
               <p className="hero-eyebrow">Luxe Vista by Snow Crest</p>
@@ -33,23 +33,11 @@ export default function HomePage() {
                 <li>Private balconies</li>
                 <li>27 rooms</li>
               </ul>
-              <div className="hero-actions">
-                <a href="#quick-book" className="btn btn--copper">
-                  Check availability
-                </a>
-              </div>
             </div>
           </div>
         </div>
-      </section>
 
-      {/* ---------- QUICK BOOK BAR ---------- */}
-      <section id="quick-book" className="section section--linen-soft quick-book">
-        <div className="container">
-          <div className="quick-book-inner">
-            <BookingWidget />
-          </div>
-        </div>
+        <HeroBookBar />
       </section>
 
       {/* ---------- WHO WE ARE ---------- */}
