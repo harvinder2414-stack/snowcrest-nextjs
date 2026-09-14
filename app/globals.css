@@ -389,64 +389,32 @@ p {
   }
 }
 
-/* ---------- booking modal ----------
-   Pure-CSS modal: shown whenever the URL fragment is #book-now, so any
-   link on the site (nav "Book Now", hero CTA) can trigger it with a plain
-   href="#book-now" — no client-side state needed. */
-.modal-overlay {
-  position: fixed;
-  inset: 0;
-  z-index: 200;
+/* ---------- quick book bar ----------
+   The compact booking section that sits directly below the hero photo —
+   inline, reliable, no client-side state or CSS-target tricks needed. */
+.quick-book {
+  padding-top: clamp(1.75rem, 4vw, 2.75rem);
+  padding-bottom: clamp(1.75rem, 4vw, 2.75rem);
+}
+
+.quick-book-inner {
   display: flex;
-  align-items: center;
   justify-content: center;
-  padding: 1.25rem;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.2s ease;
 }
 
-.modal-overlay:target {
-  opacity: 1;
-  visibility: visible;
-}
-
-.modal-backdrop {
-  position: absolute;
-  inset: 0;
-  background: rgba(20, 14, 8, 0.55);
-  backdrop-filter: blur(2px);
-  display: block;
-}
-
-.modal-card {
-  position: relative;
-  z-index: 1;
+.quick-book-inner .booking-widget {
   width: 100%;
-  max-width: 25rem;
-  max-height: 90vh;
-  overflow-y: auto;
+  max-width: 34rem;
 }
 
-.modal-card .booking-widget {
-  max-width: none;
-  box-shadow: 0 30px 70px rgba(20, 14, 8, 0.5);
+.quick-book-inner .booking-row {
+  grid-template-columns: 1fr 1fr;
 }
 
-.modal-close {
-  position: absolute;
-  top: 0.6rem;
-  right: 0.75rem;
-  z-index: 2;
-  color: #f4efe4;
-  text-decoration: none;
-  font-size: 1rem;
-  line-height: 1;
-  padding: 0.4rem 0.55rem;
-}
-
-.modal-close:hover {
-  color: var(--gold-line);
+@media (min-width: 640px) {
+  .quick-book-inner .booking-widget {
+    padding: 1.5rem 2rem;
+  }
 }
 
 .hero-eyebrow {
@@ -666,6 +634,7 @@ p {
 }
 
 .split-art {
+  aspect-ratio: 4 / 3;
   border-radius: 3px;
   overflow: hidden;
 }
@@ -727,6 +696,18 @@ p {
   height: 100%;
   object-fit: cover;
   display: block;
+  transition: transform 0.5s ease;
+}
+
+.room-art:hover .photo,
+.split-art:hover .photo {
+  transform: scale(1.04);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .photo {
+    transition: none;
+  }
 }
 
 /* a small, delicate row of secondary photos below a room's main image */
@@ -819,6 +800,50 @@ p {
 }
 
 /* ============================================================
+   RELATED ROOMS — cross-links at the bottom of a room detail page
+   ============================================================ */
+
+.related-rooms {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 700px) {
+  .related-rooms {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.related-room {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.related-room-art {
+  aspect-ratio: 4 / 3;
+  border-radius: 3px;
+  overflow: hidden;
+  margin-bottom: 0.85rem;
+}
+
+.related-room h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.35rem;
+  transition: color 0.2s ease;
+}
+
+.related-room:hover h3 {
+  color: var(--copper-deep);
+}
+
+.related-room .room-price {
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+/* ============================================================
    AMENITIES (dining page) — icon rows, not a shadow-card grid
    ============================================================ */
 
@@ -837,6 +862,18 @@ p {
 .amenity {
   border-left: 2px solid var(--gold-line);
   padding-left: 1.5rem;
+}
+
+.amenity-icon {
+  width: 28px;
+  height: 28px;
+  color: var(--gold-line);
+  margin-bottom: 0.75rem;
+}
+
+.section--linen .amenity-icon,
+.section--linen-soft .amenity-icon {
+  color: var(--copper);
 }
 
 .amenity h3 {

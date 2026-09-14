@@ -1,5 +1,6 @@
 import Link from "next/link";
 import RidgeDivider from "@/components/RidgeDivider";
+import AmenityIcon from "@/components/AmenityIcon";
 
 export const metadata = {
   title: "About Us — Hotel in Dalhousie, Himachal Pradesh",
@@ -56,18 +57,22 @@ export default function AboutPage() {
           </div>
           <div className="amenity-grid">
             <div className="amenity">
+              <AmenityIcon name="chat" />
               <h3>Direct communication</h3>
               <p>Message us on WhatsApp and speak to a person who knows the property, not a call centre.</p>
             </div>
             <div className="amenity">
+              <AmenityIcon name="heating" />
               <h3>Consistent comfort</h3>
               <p>Heated rooms and hot water year-round, including through the colder months.</p>
             </div>
             <div className="amenity">
+              <AmenityIcon name="receipt" />
               <h3>No surprise charges</h3>
               <p>The rate we quote is the rate you pay — nothing added at checkout.</p>
             </div>
             <div className="amenity">
+              <AmenityIcon name="badge" />
               <h3>Small enough to notice</h3>
               <p>27 rooms means the staff get to know returning guests, not just their booking number.</p>
             </div>

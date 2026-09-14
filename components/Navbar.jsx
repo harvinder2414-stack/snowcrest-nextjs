@@ -32,9 +32,9 @@ export default function Navbar() {
         </nav>
 
         <div className="nav-actions">
-          <a href="#book-now" className="btn btn--copper">
+          <Link href="/contact" className="btn btn--copper">
             Book Now
-          </a>
+          </Link>
           <button
             className="nav-toggle"
             aria-label={open ? "Close menu" : "Open menu"}

@@ -23,6 +23,7 @@ export default function RoomDetailPage({ params }) {
 
   const hasPhotos = room.photos && room.photos.length > 0;
   const thumbPhotos = hasPhotos ? room.photos.slice(1) : [];
+  const otherRooms = rooms.filter((r) => r.slug !== room.slug).slice(0, 3);
 
   return (
     <>
@@ -69,6 +70,28 @@ export default function RoomDetailPage({ params }) {
                 </Link>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="section section--linen">
+        <div className="container">
+          <div className="section-head">
+            <p className="eyebrow">Other rooms</p>
+            <h2 style={{ fontSize: "1.6rem" }}>You might also like</h2>
+          </div>
+          <div className="related-rooms">
+            {otherRooms.map((r) => (
+              <Link key={r.slug} href={`/rooms/${r.slug}`} className="related-room">
+                <div className="related-room-art">
+                  <RoomVisual room={r} tone="copper" seed={r.slug.length + 20} />
+                </div>
+                <div>
+                  <h3>{r.name}</h3>
+                  <span className="room-price">{r.priceLabel}</span>
+                </div>
+              </Link>
+            ))}
           </div>
         </div>
       </section>

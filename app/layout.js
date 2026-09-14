@@ -1,7 +1,6 @@
 import { Fraunces, Manrope } from "next/font/google";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import BookingModal from "@/components/BookingModal";
 import "./globals.css";
 
 const fraunces = Fraunces({
@@ -122,7 +121,6 @@ export default function RootLayout({ children }) {
         <Navbar />
         <main>{children}</main>
         <Footer />
-        <BookingModal />
       </body>
     </html>
   );

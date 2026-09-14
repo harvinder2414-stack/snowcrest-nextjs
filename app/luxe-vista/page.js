@@ -1,5 +1,6 @@
 import Link from "next/link";
 import RidgeDivider from "@/components/RidgeDivider";
+import AmenityIcon from "@/components/AmenityIcon";
 
 export const metadata = {
   title: "Mountain View Hotel in Dalhousie",
@@ -74,18 +75,22 @@ export default function LuxeVistaPage() {
           </div>
           <div className="amenity-grid">
             <div className="amenity">
+              <AmenityIcon name="camera" />
               <h3>Verified rooms</h3>
               <p>Every room is verified in person, and every photo shows the actual room — not a stock image.</p>
             </div>
             <div className="amenity">
+              <AmenityIcon name="calendar" />
               <h3>One calendar</h3>
               <p>Every booking sits on one calendar, so an open date is genuinely open.</p>
             </div>
             <div className="amenity">
+              <AmenityIcon name="heating" />
               <h3>Winter-ready</h3>
               <p>Heated rooms, real mattresses, and hot water that actually stays hot through the hill winters.</p>
             </div>
             <div className="amenity">
+              <AmenityIcon name="person" />
               <h3>A person, not a queue</h3>
               <p>Room requests, dietary notes, and travel plans are handled directly by staff who know the property.</p>
             </div>

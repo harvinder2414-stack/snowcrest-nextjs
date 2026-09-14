@@ -1,6 +1,8 @@
 import Link from "next/link";
 import RoomVisual from "@/components/RoomVisual";
 import RidgeDivider from "@/components/RidgeDivider";
+import AmenityIcon from "@/components/AmenityIcon";
+import BookingWidget from "@/components/BookingWidget";
 import { rooms } from "@/lib/rooms";
 import { getAllPosts } from "@/lib/posts";
 
@@ -32,11 +34,20 @@ export default function HomePage() {
                 <li>27 rooms</li>
               </ul>
               <div className="hero-actions">
-                <a href="#book-now" className="btn btn--copper">
+                <a href="#quick-book" className="btn btn--copper">
                   Check availability
                 </a>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ---------- QUICK BOOK BAR ---------- */}
+      <section id="quick-book" className="section section--linen-soft quick-book">
+        <div className="container">
+          <div className="quick-book-inner">
+            <BookingWidget />
           </div>
         </div>
       </section>
@@ -128,7 +139,7 @@ export default function HomePage() {
       </section>
 
       {/* ---------- WHY CHOOSE SNOW CREST ---------- */}
-      <section className="section section--linen-soft">
+      <section className="section section--linen">
         <div className="container">
           <div className="section-head">
             <p className="eyebrow">Why choose us</p>
@@ -138,18 +149,22 @@ export default function HomePage() {
 
           <div className="amenity-grid">
             <div className="amenity">
+              <AmenityIcon name="heating" />
               <h3>Comfortable, all winter</h3>
               <p>Heated rooms, real mattresses, and hot water that actually stays hot in winter.</p>
             </div>
             <div className="amenity">
+              <AmenityIcon name="person" />
               <h3>Handled by a person</h3>
               <p>Room requests, dietary notes, and travel plans — handled by a person, not a ticket queue.</p>
             </div>
             <div className="amenity">
+              <AmenityIcon name="mountain" />
               <h3>Mountain-facing by design</h3>
               <p>Marble bathrooms, mountain-facing balconies, and heating designed for comfortable stays through the hill winters.</p>
             </div>
             <div className="amenity">
+              <AmenityIcon name="receipt" />
               <h3>No surprises at checkout</h3>
               <p>One calendar, one price, no surprise charge at checkout or at the front desk.</p>
             </div>
@@ -184,7 +199,7 @@ export default function HomePage() {
                 &ldquo;Staff were courteous and helpful, and the location
                 was genuinely peaceful.&rdquo;
               </blockquote>
-              <cite>— Guest review, Google</cite>
+              <cite>— Guest review, Tripadvisor</cite>
             </div>
             <div className="testimonial">
               <blockquote>
