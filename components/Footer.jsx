@@ -1,5 +1,6 @@
 import Link from "next/link";
 import RidgeDivider from "./RidgeDivider";
+import { HOTEL_PHONE_DISPLAY, HOTEL_EMAIL } from "@/lib/config";
 
 export default function Footer() {
   return (
@@ -35,8 +36,8 @@ export default function Footer() {
             <ul>
               <li>Banikhet, Dalhousie</li>
               <li>Himachal Pradesh, ~6,000 ft</li>
-              <li>+91 93171 90212</li>
-              <li>snowcresthotels@gmail.com</li>
+              <li>{HOTEL_PHONE_DISPLAY}</li>
+              <li>{HOTEL_EMAIL}</li>
               <li>
                 <a
                   href="https://www.instagram.com/hotelsnowcrest"

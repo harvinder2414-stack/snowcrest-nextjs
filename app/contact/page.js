@@ -1,4 +1,5 @@
 import ContactForm from "@/components/ContactForm";
+import { HOTEL_WHATSAPP, HOTEL_PHONE_DISPLAY, HOTEL_EMAIL, BOOKING_ENGINE_URL } from "@/lib/config";
 
 export const metadata = {
   title: "Dalhousie Hotel Booking",
@@ -14,16 +15,36 @@ export default function ContactPage({ searchParams }) {
           <p className="eyebrow">Plan your stay</p>
           <h1>Dalhousie hotel booking, direct and simple</h1>
           <p>
-            Send us your dates and we&apos;ll confirm by WhatsApp, usually
-            the same day.
+            Book online instantly, or send us your dates and we&apos;ll
+            confirm by WhatsApp, usually the same day.
           </p>
         </div>
       </section>
 
-      <section className="section section--linen-soft">
+      <section className="section section--linen-soft" style={{ textAlign: "center" }}>
+        <div className="container">
+          <p className="eyebrow">Fastest way to book</p>
+          <h2 style={{ fontSize: "1.6rem", marginBottom: "1rem" }}>Book online instantly</h2>
+          <p style={{ color: "var(--ink-soft)", maxWidth: "30rem", margin: "0 auto 1.5rem" }}>
+            Real-time availability and rates, secure payment, instant
+            confirmation.
+          </p>
+          <a
+            href={BOOKING_ENGINE_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn btn--copper"
+          >
+            Check Availability &amp; Book
+          </a>
+        </div>
+      </section>
+
+      <section className="section section--linen-soft" style={{ paddingTop: 0 }}>
         <div className="container">
           <div className="split">
             <div className="split-copy">
+              <p className="eyebrow">Prefer to send us your details?</p>
               <ContactForm
                 initialValues={{
                   checkin: searchParams?.checkin || "",
@@ -39,19 +60,19 @@ export default function ContactPage({ searchParams }) {
                 <div className="contact-method">
                   <div>
                     <strong>WhatsApp</strong>
-                    <span>+91 70185 12267 — fastest response.</span>
+                    <span>+91 {HOTEL_WHATSAPP.slice(2, 7)} {HOTEL_WHATSAPP.slice(7)} — fastest response.</span>
                   </div>
                 </div>
                 <div className="contact-method">
                   <div>
                     <strong>Phone</strong>
-                    <span>+91 93171 90212</span>
+                    <span>{HOTEL_PHONE_DISPLAY}</span>
                   </div>
                 </div>
                 <div className="contact-method">
                   <div>
                     <strong>Email</strong>
-                    <span>snowcresthotels@gmail.com</span>
+                    <span>{HOTEL_EMAIL}</span>
                   </div>
                 </div>
               </div>

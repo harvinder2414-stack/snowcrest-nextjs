@@ -1,12 +1,16 @@
 "use client";
 
 import { useState } from "react";
-import { useRouter } from "next/navigation";
+import { BOOKING_ENGINE_URL } from "@/lib/config";
 
 // A full-width booking bar docked to the bottom edge of the hero photo —
 // check-in, check-out, guests, and a single prominent CTA in one row.
+// Submits straight to the real booking engine (Yanolja Cloud / eZee).
+// Dates are passed as best-effort URL params — if the engine's booking
+// page recognises them it opens pre-filled, and if not, it still opens
+// correctly and the guest just picks dates there themselves. Either way
+// nothing breaks.
 export default function HeroBookBar() {
-  const router = useRouter();
   const [checkin, setCheckin] = useState("");
   const [checkout, setCheckout] = useState("");
   const [guests, setGuests] = useState("2");
@@ -16,8 +20,10 @@ export default function HeroBookBar() {
     const params = new URLSearchParams();
     if (checkin) params.set("checkin", checkin);
     if (checkout) params.set("checkout", checkout);
-    if (guests) params.set("guests", guests);
-    router.push(`/contact?${params.toString()}`);
+    if (guests) params.set("adults", guests);
+    const query = params.toString();
+    const url = query ? `${BOOKING_ENGINE_URL}?${query}` : BOOKING_ENGINE_URL;
+    window.open(url, "_blank", "noopener,noreferrer");
   }
 
   return (
@@ -30,7 +36,6 @@ export default function HeroBookBar() {
             type="date"
             value={checkin}
             onChange={(e) => setCheckin(e.target.value)}
-            required
           />
         </div>
         <div className="field field--bar">
@@ -40,7 +45,6 @@ export default function HeroBookBar() {
             type="date"
             value={checkout}
             onChange={(e) => setCheckout(e.target.value)}
-            required
           />
         </div>
         <div className="field field--bar">

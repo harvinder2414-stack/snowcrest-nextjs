@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { BOOKING_ENGINE_URL } from "@/lib/config";
 
 const LINKS = [
   { href: "/luxe-vista", label: "Luxe Vista" },
@@ -32,9 +33,14 @@ export default function Navbar() {
         </nav>
 
         <div className="nav-actions">
-          <Link href="/contact" className="btn btn--copper">
+          <a
+            href={BOOKING_ENGINE_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn btn--copper"
+          >
             Book Now
-          </Link>
+          </a>
           <button
             className="nav-toggle"
             aria-label={open ? "Close menu" : "Open menu"}

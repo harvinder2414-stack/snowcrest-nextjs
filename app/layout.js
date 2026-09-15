@@ -1,6 +1,7 @@
 import { Fraunces, Manrope } from "next/font/google";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { HOTEL_PHONE_DISPLAY, BOOKING_ENGINE_URL } from "@/lib/config";
 import "./globals.css";
 
 const fraunces = Fraunces({
@@ -31,7 +32,7 @@ export const metadata = {
     template: "%s | Luxe Vista by Snow Crest",
   },
   description:
-    "A mountain view hotel in Banikhet, near Dalhousie, Himachal Pradesh. 27 rooms across four categories, starting from ₹2,300 a night — book directly on WhatsApp.",
+    "A mountain view hotel in Banikhet, near Dalhousie, Himachal Pradesh. 27 rooms across four categories, starting from ₹2,300 a night — book online instantly.",
   robots: {
     index: true,
     follow: true,
@@ -77,7 +78,7 @@ const hotelSchema = {
   description:
     "A mountain view hotel in Banikhet, near Dalhousie, Himachal Pradesh, with 27 rooms across four categories.",
   url: SITE_URL,
-  telephone: "+91-93171-90212",
+  telephone: HOTEL_PHONE_DISPLAY,
   priceRange: "₹2,300+",
   address: {
     "@type": "PostalAddress",
@@ -106,6 +107,21 @@ const hotelSchema = {
     { "@type": "LocationFeatureSpecification", name: "Free parking" },
   ],
   sameAs: ["https://www.instagram.com/hotelsnowcrest"],
+  potentialAction: {
+    "@type": "ReserveAction",
+    target: {
+      "@type": "EntryPoint",
+      urlTemplate: BOOKING_ENGINE_URL,
+      actionPlatform: [
+        "http://schema.org/DesktopWebPlatform",
+        "http://schema.org/MobileWebPlatform",
+      ],
+    },
+    result: {
+      "@type": "LodgingReservation",
+      name: "Book a room at Luxe Vista by Snow Crest",
+    },
+  },
 };
 
 export default function RootLayout({ children }) {

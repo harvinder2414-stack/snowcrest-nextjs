@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { HOTEL_EMAIL } from "@/lib/config";
 
 export async function POST(request) {
   let data;
@@ -24,7 +25,7 @@ export async function POST(request) {
     },
     body: JSON.stringify({
       from: "Luxe Vista by Snow Crest <bookings@luxevistahotels.com>",
-      to: "snowcresthotels@gmail.com",
+      to: HOTEL_EMAIL,
       subject: `Booking request from ${data.name}`,
       text: JSON.stringify(data, null, 2),
     }),
