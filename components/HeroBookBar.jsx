@@ -27,7 +27,7 @@ export default function HeroBookBar() {
   }
 
   return (
-    <form className="hero-bookbar" onSubmit={handleSubmit}>
+    <form className="hero-bookbar" id="hero-book-bar" onSubmit={handleSubmit}>
       <div className="hero-bookbar-inner">
         <div className="field field--bar">
           <label htmlFor="bar-checkin">Check in</label>

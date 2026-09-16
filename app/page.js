@@ -3,12 +3,33 @@ import RoomVisual from "@/components/RoomVisual";
 import RidgeDivider from "@/components/RidgeDivider";
 import AmenityIcon from "@/components/AmenityIcon";
 import HeroBookBar from "@/components/HeroBookBar";
+import FAQAccordion from "@/components/FAQAccordion";
+import StarRating from "@/components/StarRating";
 import { rooms } from "@/lib/rooms";
 import { getAllPosts } from "@/lib/posts";
+import { faqs } from "@/lib/faqs";
+import { BOOKING_ENGINE_URL } from "@/lib/config";
 
 export const metadata = {
   title: { absolute: "Hotel in Dalhousie | Mountain View Hotel in Banikhet | Luxe Vista" },
   alternates: { canonical: "/" },
+};
+
+// FAQPage structured data — lets search engines and AI assistants surface
+// these Q&As directly (rich results, "People also ask", AI Overviews).
+// Sourced from the same faqs array the visible accordion renders, so the
+// two can never drift out of sync.
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((item) => ({
+    "@type": "Question",
+    name: item.question,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: item.answer,
+    },
+  })),
 };
 
 export default function HomePage() {
@@ -17,6 +38,11 @@ export default function HomePage() {
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+
       {/* ---------- HERO ---------- */}
       <section className="hero hero--photo hero--bookbar">
         <div className="container hero-content">
@@ -38,6 +64,75 @@ export default function HomePage() {
         </div>
 
         <HeroBookBar />
+      </section>
+
+      {/* ---------- STAT STRIP ---------- */}
+      <section className="stat-strip">
+        <div className="container">
+          <div className="stat-strip-inner">
+            <div className="stat-item">
+              <strong>27</strong>
+              <span>Rooms</span>
+            </div>
+            <div className="stat-item">
+              <strong>4.5★</strong>
+              <span>Google rating</span>
+            </div>
+            <div className="stat-item">
+              <strong>~6,000ft</strong>
+              <span>Elevation</span>
+            </div>
+            <div className="stat-item">
+              <strong>7km</strong>
+              <span>To Mall Road</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ---------- WHY BOOK DIRECT ---------- */}
+      <section className="section section--linen-soft">
+        <div className="container">
+          <div className="section-head">
+            <p className="eyebrow">Direct booking</p>
+            <h2>Why book direct with Luxe Vista?</h2>
+            <p>No listing fees, no middleman markup — just the hotel, the room, and the rate.</p>
+          </div>
+
+          <div className="amenity-grid">
+            <div className="amenity">
+              <AmenityIcon name="receipt" />
+              <h3>Best available direct rates</h3>
+              <p>See our current rates when you book directly, with nothing added for a third-party platform.</p>
+            </div>
+            <div className="amenity">
+              <AmenityIcon name="calendar" />
+              <h3>Real-time availability</h3>
+              <p>Check availability for your exact dates on our own booking engine, live.</p>
+            </div>
+            <div className="amenity">
+              <AmenityIcon name="person" />
+              <h3>No OTA middleman</h3>
+              <p>You book and communicate directly with the hotel — no third party in between.</p>
+            </div>
+            <div className="amenity">
+              <AmenityIcon name="chat" />
+              <h3>Direct assistance</h3>
+              <p>Get help with room selection, stay planning, and special requests from someone who knows the property.</p>
+            </div>
+            <div className="amenity">
+              <AmenityIcon name="badge" />
+              <h3>Secure direct booking</h3>
+              <p>Complete your reservation securely through our own booking engine.</p>
+            </div>
+          </div>
+
+          <div style={{ textAlign: "center", marginTop: "3rem" }}>
+            <a href={BOOKING_ENGINE_URL} target="_blank" rel="noopener noreferrer" className="btn btn--copper">
+              Check Availability
+            </a>
+          </div>
+        </div>
       </section>
 
       {/* ---------- WHO WE ARE ---------- */}
@@ -172,7 +267,14 @@ export default function HomePage() {
           <RidgeDivider tone="night" />
           <div className="section-head" style={{ marginTop: "2.5rem" }}>
             <p className="eyebrow">Guests say</p>
-            <h2 style={{ fontSize: "1.6rem" }}>4.5★ on Google (93 reviews) · 4.9/5 on Tripadvisor (20 reviews)</h2>
+            <div className="rating-row">
+              <StarRating rating={4.5} />
+              <span>4.5 on Google (93 reviews)</span>
+            </div>
+            <div className="rating-row">
+              <StarRating rating={4.9} />
+              <span>4.9/5 on Tripadvisor (20 reviews)</span>
+            </div>
           </div>
           <div className="testimonial-row">
             <div className="testimonial">
@@ -196,6 +298,22 @@ export default function HomePage() {
               <cite>— Guest review, Google</cite>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* ---------- REVIEWS -> BOOKING CTA ---------- */}
+      <section className="section section--night" style={{ paddingTop: 0, textAlign: "center" }}>
+        <div className="container">
+          <h2 style={{ fontSize: "clamp(1.8rem, 3.4vw, 2.6rem)", maxWidth: "32rem", margin: "0 auto 1rem" }}>
+            Loved by guests. Ready for your stay?
+          </h2>
+          <p style={{ color: "var(--mist-soft)", maxWidth: "30rem", margin: "0 auto 2rem" }}>
+            See what guests have experienced at Luxe Vista, then check
+            availability for your dates.
+          </p>
+          <a href={BOOKING_ENGINE_URL} target="_blank" rel="noopener noreferrer" className="btn btn--copper">
+            Check Availability
+          </a>
         </div>
       </section>
 
@@ -240,6 +358,18 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ---------- FAQ ---------- */}
+      <section className="section section--linen-soft">
+        <div className="container">
+          <div className="section-head">
+            <p className="eyebrow">Questions</p>
+            <h2>Frequently asked questions</h2>
+            <p>Straight answers about location, rooms, rates, and getting here.</p>
+          </div>
+          <FAQAccordion />
+        </div>
+      </section>
+
       {/* ---------- CLOSING CTA ---------- */}
       <section className="section section--night" style={{ textAlign: "center" }}>
         <div className="container">
@@ -248,12 +378,18 @@ export default function HomePage() {
             Everything you see is real
           </h2>
           <p style={{ color: "var(--mist-soft)", maxWidth: "30rem", margin: "0 auto 2rem" }}>
-            The rooms, the photos, the location and the experience. Send us
-            your dates on WhatsApp and we&apos;ll confirm the same day.
+            The rooms, the photos, the location and the experience. Check
+            availability online, or send us your dates on WhatsApp and
+            we&apos;ll confirm the same day.
           </p>
-          <Link href="/contact" className="btn btn--copper">
-            Book on WhatsApp
-          </Link>
+          <div className="hero-actions" style={{ justifyContent: "center" }}>
+            <a href={BOOKING_ENGINE_URL} target="_blank" rel="noopener noreferrer" className="btn btn--copper">
+              Check Availability
+            </a>
+            <Link href="/contact" className="btn btn--outline-night">
+              Book on WhatsApp
+            </Link>
+          </div>
         </div>
       </section>
     </>

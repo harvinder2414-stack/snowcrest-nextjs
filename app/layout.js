@@ -1,6 +1,7 @@
 import { Fraunces, Manrope } from "next/font/google";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import StickyBookBar from "@/components/StickyBookBar";
 import { HOTEL_PHONE_DISPLAY, BOOKING_ENGINE_URL } from "@/lib/config";
 import "./globals.css";
 
@@ -137,6 +138,7 @@ export default function RootLayout({ children }) {
         <Navbar />
         <main>{children}</main>
         <Footer />
+        <StickyBookBar />
       </body>
     </html>
   );
