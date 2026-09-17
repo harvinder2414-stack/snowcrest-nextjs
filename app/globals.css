@@ -419,19 +419,7 @@ p {
 }
 
 .hero-content {
-  padding-bottom: 23rem;
-}
-
-@media (min-width: 480px) {
-  .hero-content {
-    padding-bottom: 19rem;
-  }
-}
-
-@media (min-width: 640px) {
-  .hero-content {
-    padding-bottom: 12rem;
-  }
+  padding-bottom: 13.5rem;
 }
 
 @media (min-width: 960px) {
@@ -449,28 +437,29 @@ p {
   background: rgba(43, 32, 24, 0.4);
   backdrop-filter: blur(4px);
   border-top: 1px solid rgba(220, 174, 92, 0.35);
-  padding: 1.1rem clamp(1.25rem, 4vw, 3.5rem);
+  padding: 0.85rem clamp(1.25rem, 4vw, 3.5rem);
 }
 
 .hero-bookbar-inner {
   max-width: var(--content-max);
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 0.85rem;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.6rem 0.75rem;
   align-items: end;
 }
 
-@media (min-width: 640px) {
-  .hero-bookbar-inner {
-    grid-template-columns: 1fr 1fr;
-  }
+.hero-bookbar-submit {
+  grid-column: 1 / -1;
 }
 
 @media (min-width: 960px) {
   .hero-bookbar-inner {
     grid-template-columns: repeat(3, minmax(0, 10rem)) auto auto;
     gap: 1.25rem;
+  }
+  .hero-bookbar-submit {
+    grid-column: auto;
   }
 }
 
@@ -509,6 +498,8 @@ p {
 .hero-bookbar-submit {
   white-space: nowrap;
   width: 100%;
+  padding: 0.6rem 1.2rem;
+  font-size: 0.9rem;
 }
 
 @media (min-width: 960px) {
@@ -1390,19 +1381,12 @@ p {
 
 .sticky-book {
   position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  right: 1rem;
+  bottom: 1rem;
   z-index: 60;
-  display: flex;
-  justify-content: center;
-  padding: 0.85rem 1rem;
-  background: rgba(43, 32, 24, 0.94);
-  backdrop-filter: blur(6px);
-  border-top: 1px solid rgba(220, 174, 92, 0.35);
-  transform: translateY(100%);
+  transform: translateY(12px);
   opacity: 0;
-  transition: transform 0.25s ease, opacity 0.25s ease;
+  transition: transform 0.2s ease, opacity 0.2s ease;
   pointer-events: none;
 }
 
@@ -1413,17 +1397,19 @@ p {
 }
 
 .sticky-book-link {
-  display: block;
-  width: 100%;
-  max-width: 22rem;
-  text-align: center;
-  padding: 0.75rem 1.5rem;
+  display: inline-flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
   background: var(--copper);
   color: #fff8ee;
   font-weight: 600;
+  font-size: 0.82rem;
+  letter-spacing: 0.01em;
   text-decoration: none;
-  border-radius: 2px;
+  border-radius: 999px;
+  box-shadow: 0 6px 14px rgba(20, 14, 8, 0.22);
   transition: background-color 0.2s ease;
+  white-space: nowrap;
 }
 
 .sticky-book-link:hover {
@@ -1440,17 +1426,12 @@ p {
 
 @media (min-width: 640px) {
   .sticky-book {
-    left: auto;
     right: 1.5rem;
     bottom: 1.5rem;
-    padding: 0;
-    border-top: none;
-    background: none;
-    backdrop-filter: none;
   }
   .sticky-book-link {
-    max-width: none;
-    box-shadow: 0 12px 30px rgba(20, 14, 8, 0.35);
+    padding: 0.55rem 1.2rem;
+    font-size: 0.85rem;
   }
   .sticky-book-mobile {
     display: none;

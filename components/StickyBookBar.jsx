@@ -39,8 +39,8 @@ export default function StickyBookBar() {
         className="sticky-book-link"
         tabIndex={visible ? 0 : -1}
       >
-        <span className="sticky-book-desktop">Check Availability</span>
-        <span className="sticky-book-mobile">Book Direct</span>
+        <span className="sticky-book-desktop">Book Direct</span>
+        <span className="sticky-book-mobile">Book Now</span>
       </a>
     </div>
   );
