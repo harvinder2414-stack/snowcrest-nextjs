@@ -39,7 +39,7 @@ export default function Navbar() {
             rel="noopener noreferrer"
             className="btn btn--copper"
           >
-            Book Now
+            Book Direct
           </a>
           <button
             className="nav-toggle"
