@@ -1556,3 +1556,952 @@ p {
   letter-spacing: 0.06em;
   color: var(--mist-soft);
 }
+
+/* ============================================================
+   HOMEPAGE REDESIGN (2026)
+   Namespaced `lv-` so nothing here can collide with the styles
+   the interior pages still rely on. Palette, type and button
+   styles are inherited from the tokens at the top of this file —
+   this section only changes layout, spacing and photography.
+   ============================================================ */
+
+:root {
+  --lv-gap: clamp(1.25rem, 3vw, 2rem);
+  --lv-section-y: clamp(3.5rem, 7vw, 6.5rem);
+  --lv-radius: 3px;
+  --lv-hairline: rgba(43, 32, 24, 0.12);
+}
+
+.lv-section {
+  padding: var(--lv-section-y) 0;
+}
+
+.lv-section--linen { background: var(--linen); color: var(--ink); }
+.lv-section--cream { background: var(--linen-soft); color: var(--ink); }
+.lv-section--night {
+  background: linear-gradient(175deg, var(--night) 0%, var(--night-soft) 100%);
+  color: var(--mist);
+}
+.lv-section--night h2,
+.lv-section--night h3 { color: #f6f1e6; }
+
+.lv-head {
+  max-width: 44rem;
+  margin-bottom: clamp(2rem, 4vw, 3.25rem);
+}
+
+.lv-head h2 {
+  font-size: clamp(1.9rem, 3.5vw, 2.85rem);
+  line-height: 1.1;
+}
+
+.lv-head p {
+  margin-top: 1.1rem;
+  color: var(--ink-soft);
+  font-size: 1.05rem;
+  max-width: 40rem;
+}
+
+.lv-section--night .lv-head p { color: var(--mist-soft); }
+
+.lv-head--center {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.lv-center {
+  text-align: center;
+  margin-top: clamp(2rem, 4vw, 3rem);
+}
+
+/* arrow affordance on links and buttons that lead somewhere specific */
+.lv-arrow::after {
+  content: " \2192";
+  transition: transform 0.2s ease;
+  display: inline-block;
+}
+.lv-arrow:hover::after { transform: translateX(3px); }
+
+.btn--glass {
+  background: rgba(255, 252, 245, 0.1);
+  border-color: rgba(255, 250, 240, 0.55);
+  color: #fffaf0;
+  backdrop-filter: blur(6px);
+}
+.btn--glass:hover {
+  background: rgba(255, 252, 245, 0.2);
+  border-color: #fffaf0;
+}
+
+/* ---------- 1. HERO ---------- */
+
+.lv-hero {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  align-items: flex-end;
+  min-height: 82svh;
+  padding: clamp(4rem, 12vw, 7rem) 0 clamp(2.5rem, 6vw, 4.5rem);
+  overflow: hidden;
+  background: var(--night);
+}
+
+.lv-hero-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 42%;
+  z-index: 0;
+}
+
+.lv-hero-veil {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    linear-gradient(to top, rgba(28, 19, 13, 0.88) 0%, rgba(28, 19, 13, 0.5) 38%, rgba(28, 19, 13, 0.08) 72%, rgba(28, 19, 13, 0.25) 100%),
+    linear-gradient(to right, rgba(28, 19, 13, 0.55) 0%, rgba(28, 19, 13, 0) 65%);
+}
+
+.lv-hero-inner {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  color: #fffaf0;
+  max-width: min(var(--content-max), 100%);
+  animation: lv-rise 0.9s cubic-bezier(0.2, 0.7, 0.3, 1) both;
+}
+
+@keyframes lv-rise {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lv-hero-inner { animation: none; }
+}
+
+.lv-hero-kicker {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1rem;
+  color: var(--gold-line);
+  margin-bottom: 1rem;
+}
+
+.lv-hero h1 {
+  font-size: clamp(2.1rem, 5.6vw, 4.05rem);
+  line-height: 1.04;
+  max-width: 17ch;
+  color: #fffaf0;
+  text-wrap: balance;
+}
+
+.lv-hero-sub {
+  margin-top: 1.25rem;
+  max-width: 44ch;
+  font-size: clamp(1rem, 1.5vw, 1.12rem);
+  line-height: 1.6;
+  color: rgba(255, 248, 235, 0.88);
+}
+
+.lv-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: clamp(1.75rem, 3vw, 2.5rem);
+}
+
+@media (max-width: 599px) {
+  .lv-hero { min-height: 88svh; }
+  .lv-hero-actions .btn { flex: 1 1 8rem; justify-content: center; }
+}
+
+/* ---------- 2. HIGHLIGHTS ---------- */
+
+.lv-highlights {
+  background: var(--linen-soft);
+  border-bottom: 1px solid var(--lv-hairline);
+  padding: clamp(2.25rem, 4.5vw, 3.5rem) 0;
+}
+
+.lv-highlights-row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: clamp(1.75rem, 4vw, 3rem);
+  text-align: center;
+}
+
+@media (min-width: 720px) {
+  .lv-highlights-row { grid-template-columns: repeat(4, 1fr); }
+}
+
+.lv-highlight {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.lv-highlight .amenity-icon {
+  width: 30px;
+  height: 30px;
+  color: var(--copper);
+  margin-bottom: 0.4rem;
+}
+
+.lv-highlight strong {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 3.2vw, 2.1rem);
+  font-weight: 500;
+  line-height: 1;
+  color: var(--ink);
+}
+
+.lv-highlight span {
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+  line-height: 1.35;
+}
+
+/* ---------- 3 & 7. TWO-COLUMN ---------- */
+
+.lv-two-col {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: center;
+}
+
+@media (min-width: 900px) {
+  .lv-two-col { grid-template-columns: 1fr 1fr; }
+  .lv-two-col--map { align-items: start; }
+}
+
+.lv-two-col-media img,
+.lv-map-photo {
+  width: 100%;
+  height: clamp(16rem, 42vw, 30rem);
+  object-fit: cover;
+  border-radius: var(--lv-radius);
+}
+
+.lv-two-col-copy h2 {
+  font-size: clamp(1.8rem, 3.4vw, 2.7rem);
+  margin-bottom: 1.4rem;
+}
+
+.lv-two-col-copy p {
+  color: var(--ink-soft);
+  max-width: 62ch;
+}
+
+.lv-two-col-copy p + p { margin-top: 1.05rem; }
+
+.lv-two-col-copy .text-link { margin-top: 1.75rem; }
+
+/* ---------- SCROLL RAILS (rooms, reviews, destinations) ---------- */
+
+.lv-rail-wrap { overflow: hidden; }
+
+.lv-rail {
+  display: grid;
+  gap: var(--lv-gap);
+}
+
+@media (max-width: 899px) {
+  .lv-rail {
+    display: flex;
+    max-width: none;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-padding-left: var(--gutter);
+    padding-bottom: 1rem;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .lv-rail::-webkit-scrollbar { display: none; }
+  .lv-rail > * {
+    flex: 0 0 min(80vw, 21rem);
+    scroll-snap-align: start;
+  }
+}
+
+@media (min-width: 900px) {
+  .lv-rail { grid-template-columns: repeat(2, 1fr); }
+  .lv-rail.lv-rail--dest,
+  .lv-rail.lv-rail--reviews { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (min-width: 1140px) {
+  .lv-rail { grid-template-columns: repeat(4, 1fr); }
+}
+
+/* ---------- 4. ROOMS ---------- */
+
+.lv-room {
+  display: flex;
+  flex-direction: column;
+  background: var(--linen-soft);
+  border-radius: var(--lv-radius);
+  overflow: hidden;
+}
+
+.lv-section--linen .lv-room { background: var(--linen-soft); }
+
+.lv-room-media {
+  display: block;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+}
+
+.lv-room-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.2, 0.7, 0.3, 1);
+}
+
+.lv-room:hover .lv-room-media img { transform: scale(1.04); }
+
+.lv-room-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 1.35rem 1.35rem 1.5rem;
+}
+
+.lv-room-body h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.55rem;
+}
+
+.lv-room-body h3 a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.lv-room-body h3 a:hover { color: var(--copper-deep); }
+
+.lv-room-blurb {
+  color: var(--ink-soft);
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+
+.lv-room-features {
+  list-style: none;
+  margin: 0.9rem 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 0.5rem;
+}
+
+.lv-room-features li {
+  font-size: 0.78rem;
+  color: var(--ink-soft);
+  border: 1px solid var(--lv-hairline);
+  border-radius: 999px;
+  padding: 0.22rem 0.65rem;
+  white-space: nowrap;
+}
+
+.lv-room-foot {
+  margin-top: auto;
+  padding-top: 1.25rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.6rem;
+}
+
+.lv-room-price {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  color: var(--ink);
+}
+
+.lv-room-foot .text-link { font-size: 0.92rem; }
+
+/* ---------- 5 & 13. FULL-WIDTH IMAGE SECTIONS ---------- */
+
+.lv-feature,
+.lv-closing {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  align-items: center;
+  min-height: clamp(24rem, 62vh, 38rem);
+  padding: clamp(3.5rem, 8vw, 6rem) 0;
+  color: #fffaf0;
+  overflow: hidden;
+  background: var(--night);
+}
+
+.lv-feature-img,
+.lv-closing-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.lv-feature-veil,
+.lv-closing-veil {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.lv-feature-veil {
+  background:
+    linear-gradient(to right, rgba(24, 16, 11, 0.82) 0%, rgba(24, 16, 11, 0.6) 38%, rgba(24, 16, 11, 0.12) 72%, rgba(24, 16, 11, 0) 100%),
+    linear-gradient(to top, rgba(24, 16, 11, 0.5) 0%, rgba(24, 16, 11, 0.12) 45%, rgba(24, 16, 11, 0.3) 100%);
+}
+
+.lv-closing-veil {
+  background:
+    radial-gradient(ellipse 70% 62% at 50% 45%, rgba(24, 16, 11, 0.78) 0%, rgba(24, 16, 11, 0.45) 60%, rgba(24, 16, 11, 0.3) 100%),
+    linear-gradient(to top, rgba(24, 16, 11, 0.55) 0%, rgba(24, 16, 11, 0.2) 50%, rgba(24, 16, 11, 0.35) 100%);
+}
+
+@media (max-width: 719px) {
+  .lv-feature-veil {
+    background: linear-gradient(to top, rgba(24, 16, 11, 0.9) 0%, rgba(24, 16, 11, 0.7) 45%, rgba(24, 16, 11, 0.25) 100%);
+  }
+}
+
+.lv-feature-inner,
+.lv-closing-inner {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+}
+
+.lv-feature-inner h2 {
+  font-size: clamp(2rem, 4.6vw, 3.3rem);
+  color: #fffaf0;
+  max-width: 14ch;
+  line-height: 1.05;
+}
+
+.lv-feature-inner p {
+  margin-top: 1.25rem;
+  max-width: 48ch;
+  color: rgba(255, 248, 235, 0.9);
+}
+
+.lv-closing { min-height: clamp(20rem, 52vh, 30rem); }
+
+.lv-closing-inner { text-align: center; }
+
+.lv-closing-inner h2 {
+  font-size: clamp(2rem, 5vw, 3.4rem);
+  color: #fffaf0;
+  margin-bottom: 2rem;
+}
+
+/* ---------- 6. WHY CHOOSE ---------- */
+
+.lv-reasons {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(2rem, 4vw, 3rem);
+}
+
+@media (min-width: 620px) {
+  .lv-reasons { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (min-width: 1000px) {
+  .lv-reasons { grid-template-columns: repeat(4, 1fr); }
+}
+
+.lv-reason .amenity-icon {
+  width: 30px;
+  height: 30px;
+  color: var(--copper);
+  margin-bottom: 1rem;
+}
+
+.lv-reason h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.6rem;
+}
+
+.lv-reason p {
+  color: var(--ink-soft);
+  font-size: 0.96rem;
+  line-height: 1.6;
+}
+
+/* ---------- 7. LOCATION EXTRAS ---------- */
+
+.lv-distances {
+  list-style: none;
+  margin: 1.9rem 0 0;
+  padding: 0;
+  max-width: 28rem;
+}
+
+.lv-distances li {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  padding: 0.62rem 0;
+  border-bottom: 1px solid var(--lv-hairline);
+}
+
+.lv-distances li span {
+  color: var(--ink-soft);
+  font-size: 0.97rem;
+}
+
+.lv-distances li strong {
+  margin-left: auto;
+  font-family: var(--font-display);
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.lv-inline-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 1.6rem;
+  margin-top: 1.9rem;
+}
+
+.lv-map-stack {
+  display: grid;
+  gap: var(--lv-gap);
+}
+
+.lv-map {
+  border-radius: var(--lv-radius);
+  overflow: hidden;
+  background: #e6dcc7;
+}
+
+.lv-map iframe {
+  display: block;
+  width: 100%;
+  height: clamp(16rem, 34vw, 23rem);
+  border: 0;
+}
+
+.lv-map-photo { height: clamp(11rem, 20vw, 14rem); }
+
+/* ---------- 8. REVIEWS ---------- */
+
+.lv-ratings {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: clamp(1.75rem, 6vw, 4.5rem);
+  margin-bottom: clamp(2.25rem, 5vw, 3.25rem);
+}
+
+.lv-rating {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+  color: var(--gold-line);
+}
+
+.lv-rating strong {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: #f6f1e6;
+}
+
+.lv-rating span {
+  font-size: 0.88rem;
+  color: var(--mist-soft);
+}
+
+.lv-review {
+  margin: 0;
+  padding: 1.6rem 1.6rem 1.4rem;
+  background: rgba(255, 250, 240, 0.06);
+  border-radius: var(--lv-radius);
+  border-top: 2px solid rgba(220, 174, 92, 0.6);
+  display: flex;
+  flex-direction: column;
+}
+
+.lv-review blockquote {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  line-height: 1.5;
+  color: #f6f1e6;
+}
+
+.lv-review blockquote::before { content: "\201C"; }
+.lv-review blockquote::after { content: "\201D"; }
+
+.lv-review figcaption {
+  margin-top: auto;
+  padding-top: 1.1rem;
+  font-size: 0.85rem;
+  color: var(--mist-soft);
+}
+
+.lv-review-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem 2rem;
+  margin-top: clamp(2rem, 4vw, 3rem);
+}
+
+/* ---------- 9. DESTINATIONS ---------- */
+
+.lv-dest {
+  display: flex;
+  flex-direction: column;
+}
+
+.lv-dest-media {
+  position: relative;
+  display: block;
+  aspect-ratio: 3 / 4;
+  border-radius: var(--lv-radius);
+  overflow: hidden;
+}
+
+.lv-dest-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.2, 0.7, 0.3, 1);
+}
+
+.lv-dest:hover .lv-dest-media img { transform: scale(1.04); }
+
+.lv-dest-media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(28, 19, 13, 0.75) 0%, rgba(28, 19, 13, 0.1) 45%, rgba(28, 19, 13, 0) 70%);
+}
+
+.lv-dest-name {
+  position: absolute;
+  left: 1.25rem;
+  bottom: 1.1rem;
+  z-index: 2;
+  font-family: var(--font-display);
+  font-size: 1.55rem;
+  color: #fffaf0;
+}
+
+.lv-dest-body { padding-top: 1.1rem; }
+
+.lv-dest-distance {
+  font-size: 0.85rem;
+  color: var(--copper-deep);
+  margin-bottom: 0.5rem;
+}
+
+.lv-dest-body p { color: var(--ink-soft); font-size: 0.96rem; line-height: 1.6; }
+
+.lv-dest-body .text-link { margin-top: 1rem; font-size: 0.92rem; }
+
+/* Text panel that sits alongside the two photo cards — carries the places we
+   have no photography of, so they keep their links without a borrowed image. */
+.lv-nearby {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  padding: 1.75rem 1.6rem;
+  background: rgba(43, 32, 24, 0.04);
+  border-top: 2px solid var(--copper);
+  border-radius: var(--lv-radius);
+}
+
+.lv-nearby h3 {
+  font-size: 1.15rem;
+  margin-bottom: 1.25rem;
+}
+
+.lv-nearby ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.lv-nearby li {
+  padding: 0.85rem 0;
+  border-bottom: 1px solid var(--lv-hairline);
+}
+
+.lv-nearby li:last-child { border-bottom: 0; }
+
+.lv-nearby li a {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 1.02rem;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.lv-nearby li a:hover { color: var(--copper-deep); }
+
+.lv-nearby li span {
+  display: block;
+  margin-top: 0.2rem;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: var(--ink-soft);
+}
+
+/* ---------- 10. LONG-FORM SEO CONTENT ---------- */
+
+.lv-prose-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(2.25rem, 4.5vw, 3.5rem) clamp(2.5rem, 6vw, 5rem);
+}
+
+@media (min-width: 860px) {
+  .lv-prose-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+.lv-prose-col h3 {
+  font-size: 1.3rem;
+  margin-bottom: 0.95rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--lv-hairline);
+}
+
+.lv-prose-col p {
+  color: var(--ink-soft);
+  font-size: 1rem;
+  line-height: 1.72;
+  max-width: 62ch;
+}
+
+.lv-prose-col p + p { margin-top: 0.9rem; }
+
+.lv-prose-col a {
+  color: var(--copper-deep);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+}
+
+/* ---------- 11. FAQ ---------- */
+
+.lv-faq-wrap .faq-list { max-width: 52rem; }
+
+/* ---------- 12. DIRECT BOOKING ---------- */
+
+.lv-direct {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(2rem, 4vw, 3.5rem);
+  align-items: center;
+  padding: clamp(2rem, 4.5vw, 3.5rem);
+  background: var(--linen-soft);
+  border-radius: var(--lv-radius);
+  border-top: 2px solid var(--copper);
+}
+
+@media (min-width: 880px) {
+  .lv-direct { grid-template-columns: 1.35fr 1fr; }
+}
+
+.lv-direct-copy h2 {
+  font-size: clamp(1.7rem, 3vw, 2.4rem);
+  margin-bottom: 1rem;
+}
+
+.lv-direct-copy p {
+  color: var(--ink-soft);
+  max-width: 52ch;
+}
+
+.lv-ticks {
+  list-style: none;
+  margin: 1.6rem 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
+  gap: 0.6rem 1.5rem;
+}
+
+.lv-ticks li {
+  display: flex;
+  align-items: baseline;
+  gap: 0.55rem;
+  font-size: 0.97rem;
+  color: var(--ink);
+}
+
+.lv-ticks li::before {
+  content: "\2713";
+  color: var(--copper);
+  font-weight: 700;
+}
+
+.lv-direct-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0.75rem;
+}
+
+.lv-direct-actions .btn { justify-content: center; }
+
+.lv-direct-phone {
+  margin-top: 0.4rem;
+  text-align: center;
+  font-size: 0.92rem;
+  color: var(--ink-soft);
+}
+
+.lv-direct-phone a {
+  color: var(--copper-deep);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+/* ---------- MOBILE STICKY DUAL CTA ---------- */
+
+.lv-sticky {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 60;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: rgba(251, 246, 234, 0.97);
+  backdrop-filter: blur(10px);
+  border-top: 1px solid var(--lv-hairline);
+  padding: 0.6rem var(--gutter) calc(0.6rem + env(safe-area-inset-bottom));
+  gap: 0.6rem;
+  transform: translateY(110%);
+  transition: transform 0.28s ease;
+}
+
+.lv-sticky--visible { transform: none; }
+
+.lv-sticky a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.8rem 0.5rem;
+  border-radius: 2px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.lv-sticky-rooms {
+  border: 1px solid rgba(43, 32, 24, 0.3);
+  color: var(--ink);
+}
+
+.lv-sticky-book {
+  background: var(--copper);
+  color: #fff8ee;
+}
+
+@media (min-width: 900px) {
+  .lv-sticky { display: none; }
+}
+
+/* four-column footer used by the redesigned site */
+@media (min-width: 720px) {
+  .footer-grid--wide { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (min-width: 1000px) {
+  .footer-grid--wide { grid-template-columns: 1.5fr 1fr 1fr 1.15fr 1.1fr; }
+}
+
+.footer-grid--wide a { transition: color 0.2s ease; }
+.footer-grid--wide a:hover { color: var(--gold-line); }
+
+/* ---------- LEGAL / POLICY PAGES ---------- */
+
+.legal {
+  max-width: 48rem;
+}
+
+.legal h2 {
+  font-size: 1.35rem;
+  margin: 2.5rem 0 0.9rem;
+  padding-bottom: 0.7rem;
+  border-bottom: 1px solid var(--lv-hairline);
+}
+
+.legal h2:first-of-type { margin-top: 0; }
+
+.legal p,
+.legal li {
+  color: var(--ink-soft);
+  line-height: 1.75;
+}
+
+.legal p + p { margin-top: 1rem; }
+
+.legal ul {
+  margin: 1rem 0 0;
+  padding-left: 1.2rem;
+}
+
+.legal li { margin-bottom: 0.7rem; }
+
+.legal strong { color: var(--ink); }
+
+.legal a {
+  color: var(--copper-deep);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* Deliberately loud: these pages ship with placeholders that must be replaced
+   before launch, and a quiet note would get missed. Delete the .legal-flag
+   block in each page once the real terms are in. */
+.legal-flag {
+  margin-bottom: 2.5rem;
+  padding: 1.1rem 1.25rem;
+  background: #fff4d6;
+  border-left: 4px solid #b8860b;
+  border-radius: var(--lv-radius);
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: #4a3a12;
+}
+
+.legal-flag code {
+  background: rgba(0, 0, 0, 0.08);
+  padding: 0.1rem 0.3rem;
+  border-radius: 2px;
+  font-size: 0.9em;
+}
+
+.legal-updated {
+  margin-top: 2.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--lv-hairline);
+  font-size: 0.9rem;
+}
+
+.legal-contact {
+  margin-top: 0.75rem;
+  font-size: 0.9rem;
+}

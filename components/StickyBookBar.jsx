@@ -2,33 +2,54 @@
 
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
+import Link from "next/link";
 import { BOOKING_ENGINE_URL } from "@/lib/config";
 
+// Two behaviours in one component:
+//  - Homepage: a two-button mobile bar ("View Rooms | Book Direct"), which is
+//    the pattern that converts on a phone — one browse action, one book action.
+//  - Everywhere else: the single "Book Direct" bar the interior pages already
+//    used, so nothing on those pages changes.
+// Both appear only after the hero has scrolled past, so the hero photo is
+// never covered on first load.
 export default function StickyBookBar() {
   const pathname = usePathname();
   const [visible, setVisible] = useState(false);
+  // Tolerate trailing slashes and static-export paths ("/index.html") so the
+  // homepage bar doesn't silently fall back to the interior-page one.
+  const route = (pathname || "/").replace(/index\.html$/, "").replace(/\/+$/, "");
+  const isHome = route === "";
 
   useEffect(() => {
-    const heroBar = document.getElementById("hero-book-bar");
-
-    if (heroBar) {
-      // Homepage: show once the hero's own booking bar scrolls out of view.
-      const observer = new IntersectionObserver(
-        ([entry]) => setVisible(!entry.isIntersecting),
-        { threshold: 0 }
-      );
-      observer.observe(heroBar);
-      return () => observer.disconnect();
-    }
-
-    // Other pages: no hero booking bar to watch, so show after a short scroll.
     function onScroll() {
-      setVisible(window.scrollY > 320);
+      setVisible(window.scrollY > (isHome ? window.innerHeight * 0.65 : 320));
     }
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
-  }, [pathname]);
+  }, [pathname, isHome]);
+
+  if (isHome) {
+    return (
+      <div
+        className={`lv-sticky ${visible ? "lv-sticky--visible" : ""}`}
+        aria-hidden={!visible}
+      >
+        <Link href="/rooms" className="lv-sticky-rooms" tabIndex={visible ? 0 : -1}>
+          View Rooms
+        </Link>
+        <a
+          href={BOOKING_ENGINE_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="lv-sticky-book"
+          tabIndex={visible ? 0 : -1}
+        >
+          Book Direct
+        </a>
+      </div>
+    );
+  }
 
   return (
     <div className={`sticky-book ${visible ? "sticky-book--visible" : ""}`} aria-hidden={!visible}>
