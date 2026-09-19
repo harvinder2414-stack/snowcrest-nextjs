@@ -37,7 +37,7 @@ export default function Navbar() {
             href={BOOKING_ENGINE_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="btn btn--copper"
+            className="btn btn--copper nav-book-btn"
           >
             Book Direct
           </a>

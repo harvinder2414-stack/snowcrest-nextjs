@@ -44,11 +44,10 @@ export default function HomePage() {
       />
 
       {/* ---------- HERO ---------- */}
-      <section className="hero hero--photo hero--bookbar">
-        <div className="container hero-content">
+      <section className="hero hero--photo">
+        <div className="container">
           <div className="hero-grid hero-grid--single">
             <div>
-              <p className="hero-eyebrow">Luxe Vista by Snow Crest</p>
               <h1>Mountain View Hotel in Dalhousie, Himachal Pradesh</h1>
               <p className="hero-sub">
                 A peaceful mountain view stay in Banikhet, about 7 km from
@@ -62,8 +61,13 @@ export default function HomePage() {
             </div>
           </div>
         </div>
+      </section>
 
-        <HeroBookBar />
+      {/* ---------- BOOKING BAR (normal document flow — never overlaps the hero) ---------- */}
+      <section className="book-bar-section">
+        <div className="container">
+          <HeroBookBar />
+        </div>
       </section>
 
       {/* ---------- STAT STRIP ---------- */}
