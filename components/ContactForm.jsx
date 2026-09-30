@@ -25,7 +25,7 @@ export default function ContactForm({ initialValues = {} }) {
   function buildSummary() {
     const room = rooms.find((r) => r.slug === form.roomType);
     const lines = [
-      `Booking request — Luxe Vista by Snow Crest`,
+      `Booking request — Hotel Luxe Vista by Snow Crest`,
       `Name: ${form.name}`,
       `Phone: ${form.phone}`,
       form.email ? `Email: ${form.email}` : null,
@@ -63,7 +63,7 @@ export default function ContactForm({ initialValues = {} }) {
     const summary = buildSummary();
     const waLink = `https://wa.me/${HOTEL_WHATSAPP}?text=${encodeURIComponent(summary)}`;
     const mailLink = `mailto:${HOTEL_EMAIL}?subject=${encodeURIComponent(
-      "Booking request — Luxe Vista by Snow Crest"
+      "Booking request — Hotel Luxe Vista by Snow Crest"
     )}&body=${encodeURIComponent(summary)}`;
 
     window.open(waLink, "_blank", "noopener,noreferrer");

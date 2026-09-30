@@ -4,7 +4,7 @@ import { rooms } from "@/lib/rooms";
 
 export const metadata = {
   title: "Hotel Rooms in Dalhousie | Mountain View Rooms",
-  description: "Mountain view rooms in Dalhousie at Luxe Vista by Snow Crest, Banikhet — 27 hotel rooms across four categories, starting from ₹2,300 a night.",
+  description: "Mountain view rooms in Dalhousie at Hotel Luxe Vista by Snow Crest, Banikhet — 27 hotel rooms across four categories, starting from ₹2,300 a night.",
   alternates: { canonical: "/rooms" },
 };
 

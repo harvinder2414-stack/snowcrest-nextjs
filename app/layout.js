@@ -29,30 +29,30 @@ const SITE_URL = "https://www.snowcresthotels.com";
 export const metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Luxe Vista by Snow Crest | Mountain View Hotel in Dalhousie, Banikhet",
-    template: "%s | Luxe Vista by Snow Crest",
+    default: "Hotel Luxe Vista by Snow Crest | Mountain View Hotel in Dalhousie",
+    template: "%s | Hotel Luxe Vista by Snow Crest",
   },
   description:
-    "A mountain view hotel in Banikhet, near Dalhousie, Himachal Pradesh. 27 rooms across four categories, starting from ₹2,300 a night — book online instantly.",
+    "Stay at Hotel Luxe Vista by Snow Crest, a mountain view hotel in Banikhet near Dalhousie. Enjoy comfortable rooms, private balconies, mountain views and easy access to Dalhousie and Khajjiar.",
   robots: {
     index: true,
     follow: true,
   },
   openGraph: {
-    siteName: "Luxe Vista by Snow Crest",
+    siteName: "Hotel Luxe Vista by Snow Crest",
     type: "website",
     locale: "en_IN",
     url: SITE_URL,
-    title: "Luxe Vista by Snow Crest | Mountain View Hotel in Dalhousie, Banikhet",
+    title: "Hotel Luxe Vista by Snow Crest | Mountain View Hotel in Dalhousie",
     description:
-      "A mountain view hotel in Banikhet, near Dalhousie, Himachal Pradesh. 27 rooms across four categories, starting from ₹2,300 a night.",
-    images: [{ url: "/images/hotel-exterior.webp", width: 1360, height: 908, alt: "Luxe Vista by Snow Crest, a hotel in Banikhet near Dalhousie" }],
+      "Stay at Hotel Luxe Vista by Snow Crest, a mountain view hotel in Banikhet near Dalhousie. Enjoy comfortable rooms, private balconies, mountain views and easy access to Dalhousie and Khajjiar.",
+    images: [{ url: "/images/hotel-exterior.webp", width: 1360, height: 908, alt: "Hotel Luxe Vista by Snow Crest, a hotel in Banikhet near Dalhousie" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Luxe Vista by Snow Crest | Mountain View Hotel in Dalhousie, Banikhet",
+    title: "Hotel Luxe Vista by Snow Crest | Mountain View Hotel in Dalhousie",
     description:
-      "A mountain view hotel in Banikhet, near Dalhousie, Himachal Pradesh. 27 rooms across four categories, starting from ₹2,300 a night.",
+      "Stay at Hotel Luxe Vista by Snow Crest, a mountain view hotel in Banikhet near Dalhousie. Enjoy comfortable rooms, private balconies, mountain views and easy access to Dalhousie and Khajjiar.",
     images: ["/images/hotel-exterior.webp"],
   },
 };
@@ -75,10 +75,15 @@ export const metadata = {
 const hotelSchema = {
   "@context": "https://schema.org",
   "@type": "Hotel",
-  name: "Luxe Vista by Snow Crest",
+  name: "Hotel Luxe Vista by Snow Crest",
   description:
     "A mountain view hotel in Banikhet, near Dalhousie, Himachal Pradesh, with 27 rooms across four categories.",
   url: SITE_URL,
+  image: [
+    `${SITE_URL}/images/hotel-exterior.webp`,
+    `${SITE_URL}/images/king-mountain-view-1.avif`,
+    `${SITE_URL}/images/king-room-balcony-1.avif`,
+  ],
   telephone: HOTEL_PHONE_DISPLAY,
   priceRange: "₹2,300+",
   address: {
@@ -120,7 +125,7 @@ const hotelSchema = {
     },
     result: {
       "@type": "LodgingReservation",
-      name: "Book a room at Luxe Vista by Snow Crest",
+      name: "Book a room at Hotel Luxe Vista by Snow Crest",
     },
   },
 };

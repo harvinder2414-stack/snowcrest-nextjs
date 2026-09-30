@@ -4,7 +4,7 @@ import AmenityIcon from "@/components/AmenityIcon";
 
 export const metadata = {
   title: "Mountain View Hotel in Dalhousie",
-  description: "Luxe Vista by Snow Crest is a mountain view hotel in Dalhousie, Himachal Pradesh — located in Banikhet, roughly 6,000 ft up and 7 km from Dalhousie Mall Road.",
+  description: "Hotel Luxe Vista by Snow Crest is a mountain view hotel in Dalhousie, Himachal Pradesh — located in Banikhet, roughly 6,000 ft up and 7 km from Dalhousie Mall Road.",
   alternates: { canonical: "/luxe-vista" },
 };
 

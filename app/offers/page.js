@@ -3,7 +3,7 @@ import AmenityIcon from "@/components/AmenityIcon";
 
 export const metadata = {
   title: "Dalhousie Hotel Deals & Offers",
-  description: "Current Dalhousie hotel deals and hotel booking offers at Luxe Vista by Snow Crest, Banikhet — message us on WhatsApp for the best available rate.",
+  description: "Current Dalhousie hotel deals and hotel booking offers at Hotel Luxe Vista by Snow Crest, Banikhet — message us on WhatsApp for the best available rate.",
   alternates: { canonical: "/offers" },
 };
 

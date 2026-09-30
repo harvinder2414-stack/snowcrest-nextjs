@@ -3,7 +3,7 @@ import { getAllPosts } from "@/lib/posts";
 
 export const metadata = {
   title: "Dalhousie Travel Guide & Journal",
-  description: "A Dalhousie travel guide — places to visit in Dalhousie, day trips, how to reach Dalhousie, and the best time to visit, from Luxe Vista by Snow Crest.",
+  description: "A Dalhousie travel guide — places to visit in Dalhousie, day trips, how to reach Dalhousie, and the best time to visit, from Hotel Luxe Vista by Snow Crest.",
   alternates: { canonical: "/blog" },
 };
 

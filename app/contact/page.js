@@ -3,7 +3,7 @@ import { HOTEL_WHATSAPP, HOTEL_PHONE_DISPLAY, HOTEL_EMAIL, BOOKING_ENGINE_URL } 
 
 export const metadata = {
   title: "Dalhousie Hotel Booking",
-  description: "Book your hotel in Dalhousie directly — check availability and send a booking request to Luxe Vista by Snow Crest, Banikhet.",
+  description: "Book your hotel in Dalhousie directly — check availability and send a booking request to Hotel Luxe Vista by Snow Crest, Banikhet.",
   alternates: { canonical: "/contact" },
 };
 
@@ -90,7 +90,7 @@ export default function ContactPage({ searchParams }) {
           <div className="map-embed">
             <iframe
               src="https://www.google.com/maps?q=Luxe%20Vista%20by%20Snow%20Crest%2C%20Banikhet%2C%20Dalhousie%2C%20Himachal%20Pradesh%20176303&z=15&output=embed"
-              title="Luxe Vista by Snow Crest on Google Maps"
+              title="Hotel Luxe Vista by Snow Crest on Google Maps"
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
             />

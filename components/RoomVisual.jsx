@@ -13,7 +13,7 @@ export default function RoomVisual({ room, tone = "dusk", seed = 1 }) {
       <img
         className="photo"
         src={room.photos[0]}
-        alt={`${room.name} at Luxe Vista by Snow Crest`}
+        alt={`${room.name} at Hotel Luxe Vista by Snow Crest`}
         loading="lazy"
       />
     );
