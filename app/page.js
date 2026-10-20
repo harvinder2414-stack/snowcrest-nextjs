@@ -35,7 +35,8 @@ const faqSchema = {
 };
 
 export default function HomePage() {
-  const featuredRooms = rooms.slice(0, 3);
+  // All four categories (incl. Duplex Room) are shown in the homepage rooms section.
+  const featuredRooms = rooms;
   const posts = getAllPosts().slice(0, 3);
 
   return (

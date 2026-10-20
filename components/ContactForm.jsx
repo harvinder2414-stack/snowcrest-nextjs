@@ -12,7 +12,7 @@ export default function ContactForm({ initialValues = {} }) {
     checkin: initialValues.checkin || "",
     checkout: initialValues.checkout || "",
     guests: initialValues.guests || "2",
-    roomType: rooms[0]?.slug || "",
+    roomType: initialValues.roomType || rooms[0]?.slug || "",
     message: "",
   });
   const [status, setStatus] = useState(null); // { type: 'ok' | 'error', text }

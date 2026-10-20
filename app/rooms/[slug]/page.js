@@ -43,7 +43,10 @@ export default function RoomDetailPage({ params }) {
                 <RoomVisual room={room} tone="dusk" seed={room.slug.length + 5} />
               </div>
               {thumbPhotos.length > 0 && (
-                <div className="photo-strip">
+                <div
+                  className="photo-strip"
+                  style={{ gridTemplateColumns: `repeat(${Math.min(thumbPhotos.length, thumbPhotos.length <= 4 ? 4 : 3)}, minmax(0, 1fr))` }}
+                >
                   {thumbPhotos.map((src) => (
                     <img key={src} className="photo" src={src} alt={`${room.name} detail`} loading="lazy" />
                   ))}

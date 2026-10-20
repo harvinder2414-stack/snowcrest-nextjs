@@ -1,4 +1,5 @@
 import ContactForm from "@/components/ContactForm";
+import { rooms } from "@/lib/rooms";
 import { HOTEL_WHATSAPP, HOTEL_PHONE_DISPLAY, HOTEL_EMAIL, BOOKING_ENGINE_URL } from "@/lib/config";
 
 export const metadata = {
@@ -8,6 +9,9 @@ export const metadata = {
 };
 
 export default function ContactPage({ searchParams }) {
+  // Room pages link here as /contact?room=<slug>; only accept slugs that exist.
+  const requestedRoom = rooms.some((r) => r.slug === searchParams?.room) ? searchParams.room : "";
+
   return (
     <>
       <section className="page-hero">
@@ -50,6 +54,7 @@ export default function ContactPage({ searchParams }) {
                   checkin: searchParams?.checkin || "",
                   checkout: searchParams?.checkout || "",
                   guests: searchParams?.guests || "2",
+                  roomType: requestedRoom,
                 }}
               />
             </div>

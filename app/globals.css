@@ -827,7 +827,8 @@ p {
 
 /* a small, delicate row of secondary photos below a room's main image */
 .photo-strip {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 0.6rem;
   margin-top: 0.75rem;
 }
@@ -835,7 +836,6 @@ p {
 .photo-strip .photo {
   aspect-ratio: 1;
   border-radius: 2px;
-  flex: 1 1 0;
   min-width: 0;
 }
 
